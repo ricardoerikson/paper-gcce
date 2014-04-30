@@ -1,6 +1,7 @@
 SRCDIR=src
 TMPDIR=tmp
 OUTPUTDIR=out
+PROJECT_FILE=gcce.sublime-project
 
 TEXSRC=paper.tex
 OUTPUTFILE=paper.pdf
@@ -36,7 +37,7 @@ ifeq ($(UNAME), Darwin)
 else
 	@ls -1 ${TMP_FILES} 2>/dev/null | xargs -i mv -f {} ${TMPDIR}
 endif
-	@./rm-helper '${SRCDIR}|${OUTPUTDIR}|${TMPDIR}|Makefile|.gitignore|.git|rm-helper'
+	@make rm_helper
 
 xelatex-nopdf: prepare
 	@${XELATEX} -synctex=1 -interaction=nonstopmode --no-pdf --src-specials ${TEXSRC}
@@ -49,7 +50,7 @@ else
 endif
 	@cd ${SRCDIR}; \
 	rm -f ${TMP_FILES} *.pdf
-	@./rm-helper '${SRCDIR}|${OUTPUTDIR}|${TMPDIR}|Makefile|.gitignore|.git|rm-helper'
+	@make rm_helper
 
 
 bibtex: xelatex-nopdf
@@ -91,3 +92,6 @@ gitignore:
 
 view:
 	@${PDF_VIEWER} ${OUTPUTDIR}/${OUTPUTFILE}
+
+rm_helper:
+	@./rm-helper '${SRCDIR}|${OUTPUTDIR}|${TMPDIR}|${PROJECT_FILE}|Makefile|.gitignore|.git|rm-helper'
