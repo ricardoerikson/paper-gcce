@@ -18,3 +18,4 @@ paper.pdf
 src/.*
 tmp/*
 out/*
+*.sublime-workspace
