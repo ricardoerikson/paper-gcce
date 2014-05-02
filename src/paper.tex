@@ -4,7 +4,7 @@
 
 \begin{document}
 
-\title{A secondary screen architecture to accurately capture viewer interactions in interactive TV environments}
+\title{A secondary screen architecture to accurately capture TV viewer interactions for content personalization in TV environments}
 
 \author{\IEEEauthorblockN{Ricardo E. V. de S. Rosa}
 \IEEEauthorblockA{Graduate Program in Electrical Engineering \\ Federal University of Minas Gerais \\ Av. Antônio Carlos 6627, 31270-901, \\Belo Horizonte, MG, Brazil\\
@@ -19,40 +19,35 @@ Email: vicente@ufam.edu.br}
 \maketitle
 
 \begin{abstract}
-TV watching is frequently seen as a social activity. People gather around the television for entertainment or information. Advances in TV technology have enabled the viewer to actively interact with applications and providers instead of just passively watch TV. One important application for the viewers is content personalization, which consists in generating content recommendations based on viewers' interactions. Since the TV set is shared by many people, it is difficult to accurately capture the individual interactions from every viewer using a traditional remote control. In this paper, we present an architecture that facilitates the identification of viewers and the capture of their individual interactions in shared TV environments. In addition, we present an area of application of this architecture in the recommender systems domain.
+TV watching is frequently seen as a social activity. People gather around the television for entertainment or information. Advances in TV technology have enabled the viewer to actively interact with applications and providers instead of just passively watch TV. One important application for the viewers is content personalization, which consists in generating content recommendations based on viewers' interactions. Since the TV set is shared by many people, it is difficult to accurately capture the individual interactions from every viewer using a traditional remote control. In this paper, we present an architecture that facilitates the identification of viewers and the capture of their individual interactions in shared TV environments.
 \end{abstract}
 
 \IEEEpeerreviewmaketitle
 
 \section{Introduction}
 
-TV watching is essentially a social activity, where family, friends, or people with a common interest share the same space and TV set for entertainment or information~\cite{Masthoff2004}. After many advances in technologies for interactive and digital TV it is possible to develop high level applications to enrich the TV experience. One important application is content personalization, in which content providers deliver personalized content to viewers based on their preferences.
+TV watching is essentially a social activity, where family, friends, or people with a common interest share the same space and TV set for entertainment or information~\cite{Masthoff2004}. After many advances in technologies for interactive and digital TV it is possible to develop high level applications to enrich the TV experience. Thus, the interaction between viewers and TV became more elaborated than simply change channel and volume.
 
-The viewer preferences can be obtained by observing the viewing habits as interactions between the viewers and the TV system. Such interactions can be classified as implicit and explicit. Implicit interactions are part of the natural actions of watching TV e.g., change channel and volume. In explicit interactions viewers contribute by evaluating, commenting or sharing their opinion about a given content. Considering the data of thousands of viewers, the data captured can provide valuable information for content personalization services~\cite{Teixeira2010}.
+The interactions between viewers and TV can be classified as implicit and explicit. Implicit interactions are part of the natural actions of watching TV e.g., change channel and volume. In explicit interactions viewers contribute by actively evaluating, commenting or sharing their opinion about a given content. Both kinds of interaction are important for applications that rely on audience generated data.
 
+Considering the interactions of millions of viewers, the captured data can provide valuable information~\cite{Teixeira2010}. For example, the content producers can obtain the user ratings given to TV programs, amount of viewers and user profiles. One important application that makes use of viewers interaction is content personalization. Content providers can infer user profiles from viewers' interactions in order to deliver personalized content.
 
-people rarely just sit passively and watch TV
+The traditional remote control (RC) is the input device that viewers typically use to interact with the TV. However, the RC presents two notable problems for capturing interactions from viewers: (1) to automatically identify the viewers in the TV environment; and (2) to individually capture interactions of the viewer in charge of the RC. Thus, considering a scenario with the traditional RC, all interactions are assigned to the whole group of viewers (e.g., a family), rather than to the viewer in charge of the RC. As a result, the tastes that were inferred from the users in charge of the RC can be imposed on the tastes of others.
 
-As a new trend, the proliferation of personal mobile devices has changed the habits on audiovisual content consumption in interactive TV environments. In many situations people use their personal devices as a secondary screen to perform activities related to television watching.
+As a potential mean to handle the limitations of the RC for capturing interactions from viewers, the proliferation of personal mobile devices has changed the people behavior towards audiovisual content consumption in interactive TV environments. Nowadays, viewers rarely just sit passively and watch TV. In many situations they use their personal devices as a secondary screen to perform activities related to TV watching, which end up enriching and immersing the user into the TV experience. 
 
-In addition, this architecture can enhance the viewer interaction without interrupting the collective experience while watching TV. 
-
-The traditional remote control as a mechanism of interaction between viewer and TV can present notable problems. It is difficult to automatically identify the viewer in charge of the remote control. Thus, in practice the captured interactions are assigned to the whole group, rather than to individual viewers. As a result, in recommender systems applications for example, the tastes of the user in charge of the remote control can be imposed on the tastes of others.
-
-Considering the collective experience of watching TV, the explicit interactions of one viewer can potentially interfere in the experience of other viewers. Since there is only one remote control and a unique screen (TV screen), explicit interactions that require the use this screen (e.g., evaluate the current content or read viewers comments) end up in an undesired experience for users that are not actively participating of that interactions.
-
-The proliferation of personal mobile devices has changed the people behaviors towards TV. Frequently people perform secondary tasks while watching TV such as use of email and social networks or surf the web. Many times these tasks are related to television so that the viewer can evaluate, share or even recommend content to other people. Following this trend, TV providers are enabling the audience to use personal devices as an extension of TV, i.e., as a secondary screen to enrich and immerse the user into the TV experience.
-
-In this scenario, secondary screen devices arise as a powerful mechanism to accurately identify viewers and  capture their interactions. Other works addressed this separately: identifying viewers~\cite{Cabarcos2011,Hwang2007} and capturing interactions~\cite{Teixeira2010}. In this paper, we present an architecture that enables both identifying viewers and capture their interactions. In addition, the architecture described in this paper enables viewers to use the screen of their personal devices to perform explicit interactions without interfering in the experience of the audience in the TV environment.
+Secondary screen devices arise as a powerful mechanism to accurately identify viewers and  capture their interactions. In this research field, a typical approach is to use personal devices (e.g., smartphones and tablets) as secondary screens~\cite{Courtois2012}, since they are almost ubiquitous and present good graphical capabilities and Internet connection. The connectivity capabilities of smartphones were used in~\cite{Cabarcos2011}, where the Bluetooth technology was used to detect nearby users. With respect to interaction capture, an approach described in~\cite{Teixeira2010} shown an architecture to capture contextualized viewers interactions through a conventional remote control. In this paper, we present an architecture that enables identifying viewers and capturing their interactions using a personal device as secondary screen. 
 
 \section{Architecture}
 
+
+
 \section{Conclusions}
+
+
 
 \bibliographystyle{IEEEtran}
 \bibliography{biblio.bib}
-
-
 
 \end{document}
 
