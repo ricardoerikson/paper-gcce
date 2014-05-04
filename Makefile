@@ -30,7 +30,7 @@ all: pdf view
 pdf: bibtex xelatex
 
 xelatex: mkdir-tmp mkdir-out prepare
-	@${XELATEX} -synctex=1 -interaction=nonstopmode --src-specials ${TEXSRC}
+	@${XELATEX} -synctex=1 -interaction=errorstopmode --src-specials ${TEXSRC}
 	@mv -f ${subst .tex,.pdf,${TEXSRC}} ${OUTPUTDIR}/${OUTPUTFILE}
 ifeq ($(UNAME), Darwin)
 	@ls -1 ${TMP_FILES} 2>/dev/null | xargs -J {} mv -f {} ${TMPDIR}
@@ -40,7 +40,7 @@ endif
 	@make rm_helper
 
 xelatex-nopdf: prepare
-	@${XELATEX} -synctex=1 -interaction=nonstopmode --no-pdf --src-specials ${TEXSRC}
+	@${XELATEX} -synctex=1 -interaction=errorstopmode --no-pdf --src-specials ${TEXSRC}
 
 clean:
 ifneq (${TMPDIR},.)

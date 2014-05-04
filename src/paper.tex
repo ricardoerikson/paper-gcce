@@ -5,7 +5,7 @@
 
 \begin{document}
 
-\title{A secondary screen architecture to accurately capture TV viewer interactions for content personalization in TV environments}
+\title{A secondary screen architecture to accurately capture TV viewers' interactions and contextual information in TV environments}
 
 \author{\IEEEauthorblockN{Ricardo E. V. de S. Rosa}
 \IEEEauthorblockA{Graduate Program in Electrical Engineering \\ Federal University of Minas Gerais \\ Av. Antônio Carlos 6627, 31270-901, \\Belo Horizonte, MG, Brazil\\
@@ -31,7 +31,9 @@ TV watching is essentially a social activity, where family, friends, or people w
 
 The interactions between viewers and TV can be classified as implicit and explicit. Implicit interactions are part of the natural actions of watching TV e.g., change channel and volume. In explicit interactions viewers contribute by actively evaluating, commenting or sharing their opinion about a given content. Both kinds of interaction are important for applications that rely on audience generated data.
 
-Considering the interactions of millions of viewers, the captured data can provide valuable information~\cite{Teixeira2010}. For example, the content providers (CP) can obtain the user ratings given to TV programs, amount of viewers and user profiles. One important application that makes use of viewers interaction is content personalization. Content providers can infer user profiles from viewers' interactions in order to deliver personalized content.
+Considering the interactions of millions of viewers, the captured data can provide valuable information~\cite{Teixeira2010}. For example, the content providers (CPs) can obtain the user ratings given to TV programs, amount of viewers and user profiles. 
+
+One important application that makes use of viewers interaction is content personalization. Content providers can infer user profiles from viewers' interactions in order to deliver personalized content.
 
 The traditional remote control (RC) is the input device that viewers typically use to interact with the TV. However, the RC presents two notable problems for capturing interactions from viewers: (1) to automatically identify the viewers in the TV environment; and (2) to individually capture interactions of the viewer in charge of the RC. Thus, considering a scenario with the traditional RC, all interactions are assigned to the whole group of viewers (e.g., a family), rather than to the viewer in charge of the RC. As a result, the tastes that were inferred from the users in charge of the RC can be imposed on the tastes of others.
 
@@ -41,34 +43,33 @@ Secondary screen devices arise as a powerful mechanism to accurately identify vi
 
 \section{Architecture}
 
-This architecture consists of secondary screen devices (which might be implemented in personal devices such as smartphones and tablets) a set-top box (STB) with return channel, and a CP (which is responsible for providing the interactive applications and for storing the data that is captured from viewers).
+Initially, the CP infrastructure must provide an authentication mechanism so that viewers and STBs can be authenticated to use the secondary screen services. The STB must be authenticated in the application hosted on the CP infrastructure. Once the STB is authenticated, the viewers in the TV environment must link their user accounts with the STB. As a result, the viewer can use their personal device as a secondary screen for that STB, enabling the capture of viewers' interactions.
 
-Initially, the CP must provide an infrastructure for viewers and the STB so that they can be authenticated to use the application services. In addition, the infrastructure must also provide data storage capabilities to store the interaction data captured from viewers. Then the STB must be authenticated in the application hosted on the CP infrastructure. Once the STB is authenticated, the viewers in the TV environment must also authenticate in the application service and register the STB in their accounts. As a result, the viewer can use their personal device as a secondary screen for that STB.
-
-Figure~\ref{fig_architecture} Green arrows represent data flowing from the viewer to the CP infrastructure, while blue arrows represent the flow from CP to viewer. The black arrows represent data flow inside the CP infrastructure.
-
-The secondary screen device must be used in conjunction with the STB to identify the users that are present in the environment and update context information. In the first place, the STB 
-
-That is, the viewer can authenticate to the local set-top box by using a transparent authentication mechanism. Thus, every time a viewer is nearby the STB using a a TV application with its 
-
-The second screen devices are Internet capable devices, which have TV related applications. The viewers use these applications to interact with the TV by evaluating, commenting or sharing TV content.
+The architecture to accurately capture viewers interactions is shown in Figure~\ref{fig_architecture}. This architecture consists of secondary screen devices (which might be implemented in personal devices such as smartphones and tablets) a set-top box (STB), and the CP infrastructure (which includes an application hosting infrastructure). The green arrows represent the data flowing from the viewer to the CP infrastructure, while blue arrows denote the flow from CP infrastructure to the viewers. The black arrows represent the data flow inside the CP infrastructure.
 
 \begin{figure}[!t]
 	\centering
 	\includegraphics[width=3.5in]{img/architecture.pdf}
-	\caption{Architecture to capture viewers insteractions. }
+	\caption{Architecture to capture audience data. The viewers' interactions and the contextual information are captured and stored in the CP infrastructure.}
 	\label{fig_architecture}
 \end{figure}
 
-The STB is synchronized with the TV in order to contextualize the data that is captured.
-\cite{Lee2010}
+The STB has a presence service which detects nearby devices with viewer accounts linked to the STB. Once the STB and a linked secondary screen device are in the same environment, they are synchronized in order to update contextual data about viewer profile and amount of people using a secondary device in the room. This contextual information can be used to learn how a viewer behave toward other viewers. For example, a viewer behaves in a particular way while watching TV alone and the same viewer can behave in a different way while watching in group.
+
+Viewers can use their secondary screen device to interact with TV by evaluating, commenting, sharing or even recommending TV content to other viewers. These interactions and the contextual information are represented by the audience data that is then sent to CP infrastructure through Internet. Then, a Data Writer service stores the audience data related to each individual viewer and STB device that are authenticated in the TV environment.
+
+Once the audience data is stored, the CP can use this data to derive valuable information about users' tastes. This information can be used to provide personalized content to viewers based on the current context. Thus, the personalized content can be delivered via Internet to the secondary screen device or even to the TV depending on the context.
 
 \section{Conclusions}
 
-Since applications in the TV domain have potential to deal with millions of users at the same time, it is interesting that this infrastructure has the ability to handle a growing amount of data~\cite{Lee2010}.
+This is paper presents an architecture to accurately capture audience data in interactive TV by using secondary screen devices. The implementation of this architecture is a work in progress and its main goal is to capture viewers' interactions and contextual information to use in applications for interactive TV environments. Potential applications for this data are in the field of content personalization for TV.
+
+Since applications in the TV domain have potential to deal with millions of users at the same time, it is interesting that this CP infrastructure has the ability to handle a growing amount of data~\cite{Lee2010,Kim2012,Shin2009}. The data from millions of viewers obtained from the implementation of this architecture can provide valuable information about viewers. To obtain this information, CPs can employ machine learning algorithms or other techniques on the raw audience data aiming to create viewer profiles for content personalization. As a result, CPs can improve their services aiming to increase the audience or enrich user experience.
+
+
 
 \bibliographystyle{IEEEtran}
-\bibliography{biblio.bib}
+\bibliography{biblio}
 
 \end{document}
 
