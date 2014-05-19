@@ -45,9 +45,11 @@ Secondary screen devices arise as a powerful mechanism to accurately identify vi
 
 \section{Architecture}
 
-Initially, the CP infrastructure must provide an authentication mechanism so that viewers and their interactive TV (iTV) devices (e.g., set-top boxes or smart TVs) can be authenticated by the CP in order to use the secondary screen services. Once one iTV device is authenticated, the viewers in the TV environment must link their user accounts up with the iTV device. As a result, the viewer can use their personal device as a secondary screen for that iTV device, enabling the capture of viewers' interactions.
+\blurb{Tente colocar um nome mais sugestivo para esta secao, em vez ``Architecture'' somente.}
 
-The architecture to accurately capture viewers interactions is shown in \figurename~\ref{fig_architecture}. This architecture consists of secondary screen devices (which might be implemented in personal devices such as smartphones and tablets) an iTV device, and the CP infrastructure (which includes an application hosting infrastructure). The dashed green arrows represent the data flowing from the viewer to the CP infrastructure, while dotted blue arrows denote the flow from CP infrastructure to the viewers. The continuous black arrows represent the data flow inside the CP infrastructure.
+Initially, the CP infrastructure must provide an authentication mechanism so that viewers and their interactive TV (iTV) devices (e.g., set-top boxes or smart TVs) can be authenticated by the CP in order to use the secondary screen services. Once one iTV device is authenticated, the viewers in the TV environment must link their user accounts up with the iTV device. As a result, the viewer can use their personal device as a secondary screen, for that iTV device, in order to capture the viewers' interactions.
+
+The architecture to accurately capture viewers interactions is shown in~\figurename~\ref{fig_architecture}. This architecture consists of secondary screen devices, which might be implemented in personal devices such as smartphones and tablets, an iTV device, and the CP infrastructure, which includes an application hosting infrastructure. The dashed green arrows represent the data flowing from the viewer to the CP infrastructure, while dotted blue arrows denote the flow from CP infrastructure to the viewers. The continuous black arrows represent the data flow inside the CP infrastructure.
 
 \begin{figure}[!t]
 	\centering
@@ -56,11 +58,13 @@ The architecture to accurately capture viewers interactions is shown in \figuren
 	\label{fig_architecture}
 \end{figure}
 
-A presence service detects physically nearby secondary screen devices that have the services necessary for establishing a communication with iTV device. Modern commercial operating systems for personal devices enable service discovery by using peer-to-peer or WiFi communication. This feature is particularly appropriate for the TV environment, once the secondary screen device must be wirelessly linked up with the iTV device. The devices are synchronized in order to update contextual data about viewer profile and amount of people using a secondary device in the room. This contextual data can be used to learn how a viewer behave toward other viewers. For example, a viewer behaves in a particular way while watching TV alone and the same viewer can behave in a different way while watching in group.
+A presence service detects physically nearby secondary screen devices that have the services necessary to establish a communication with an iTV device. Modern commercial operating systems for personal devices enable service discovery by using peer-to-peer or WiFi communication. This feature is particularly appropriate for the TV environment, once the secondary screen device must be wirelessly linked up with the iTV device. The devices are synchronized in order to update the contextual data about the viewer profile and the amount of people using a secondary device in the room. This contextual data can be used to learn how a viewer behaves towards other viewers. For example, a viewer behaves in a particular way while watching TV alone and the same viewer can behave in a different way while watching in group.
 
-Viewers can use their secondary screen device to interact with TV by evaluating, commenting, sharing or even recommending TV content to other viewers. The data related to those actions are naturally provided by the viewers as part of the interaction when using interactive applications (developed by the CP) installed in their secondary screen devices. The interactions and the contextual data are represented by the audience data, which is sent to CP infrastructure through Internet. Then, a Data Writer service stores the audience data related to each particular viewer and the iTV device.
+Viewers can use their secondary screen device to interact with TV by evaluating, commenting, sharing, or even recommending TV content to other viewers. The data related to those actions are naturally provided by the viewers, as part of the interaction, when using interactive applications (developed by the CP) installed in their secondary screen devices. The interactions and the contextual data are represented by the audience data, which is sent to CP infrastructure through Internet. Then, a Data Writer service stores the audience data related to each particular viewer and the iTV device.
 
 Once the audience data is stored, the CP can use this data to derive valuable information about users' tastes. This information can be used to provide personalized content to viewers based on the current context. Thus, the personalized content can be delivered via Internet to the secondary screen device or even to the TV depending on the context.
+
+\blurb{Tens algum resumo dos resultados experimentais?}
 
 \section{Conclusions}
 
