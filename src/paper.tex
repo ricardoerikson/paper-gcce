@@ -47,7 +47,7 @@ Since personal devices are almost ubiquitous, they stand out as a powerful mecha
 
 Initially, the CP infrastructure must provide an authentication mechanism so that viewers and their interactive TV (iTV) devices (e.g., set-top boxes or smart TVs) can be authenticated by the CP in order to use the secondary screen services. Once one iTV device is authenticated, the viewers in the TV environment must link their user accounts up with the iTV device. As a result, the viewer can use their personal device as a secondary screen, for that iTV device, in order to capture the viewers' interactions.
 
-The architecture to accurately capture viewers interactions is shown in~\figurename~\ref{fig_architecture}. This architecture consists of secondary screen devices, which might be implemented in personal devices such as smartphones and tablets, an iTV device, and the CP infrastructure, which includes an application hosting infrastructure. The dashed green arrows represent the data flowing from the viewer to the CP infrastructure, while dotted blue arrows denote the flow from CP infrastructure to the viewers. The continuous black arrows represent the data flow inside the CP infrastructure.
+The architecture to accurately capture viewers interactions is shown in~\figurename~\ref{fig_architecture}. This architecture consists of secondary screen devices, which might be implemented in personal devices such as smartphones and tablets, an iTV device, and the CP infrastructure, which includes an application hosting infrastructure. Since applications in the TV domain have the potential to reach out millions of users at the same time, it is interesting that the CP infrastructure has the ability to deal with a large amount of incoming data~\cite{Lee2010}. The dashed green arrows represent the data flowing from the viewer to the CP infrastructure, while dotted blue arrows denote the flow from CP infrastructure to the viewers. The continuous black arrows represent the data flow inside the CP infrastructure.
 
 \begin{figure}[!t]
 	\centering
@@ -60,6 +60,8 @@ A presence service detects physically nearby secondary screen devices that have 
 
 Viewers can use their secondary screen device to interact with TV by evaluating, commenting, sharing, or even recommending TV content to other viewers. The data related to those actions are naturally provided by the viewers, as part of the interaction, when using interactive applications (developed by the CP) installed in their secondary screen devices. The interactions and the contextual data are represented by the audience data, which is sent to CP infrastructure through Internet. Then, a Data Writer service stores the audience data related to each particular viewer and the iTV device.
 
+The Data Writer components consists basically of web services that provide interoperability among secondary screen devices, iTV devices and the CP infrastructure. The main advantage of this approach is the independence of operating system and programming languages used in the personal devices.
+
 Once the audience data is stored, the CP can use this data to derive valuable information about users' tastes. This information can be used to provide personalized content to viewers based on the current context. Thus, the personalized content can be delivered via Internet to the secondary screen device or even to the TV depending on the context.
 
 % \blurb{Tens algum resumo dos resultados experimentais?}
@@ -68,13 +70,11 @@ Once the audience data is stored, the CP can use this data to derive valuable in
 
 The use of personal devices as secondary screens arises as a new trend in TV environments. This is paper presents an architecture to accurately capture audience data by using secondary screen devices and iTV devices. The implementation of this architecture is a work in progress, and take advantage of the ubiquity and interactive capabilities of secondary screen devices to identify viewers and provide feedback for CPs through viewers' interactions and contextual information. 
 
-Since applications in the TV domain have the potential to reach out millions of users at the same time, it is interesting that the CP infrastructure has the ability to deal with a large amount of incoming data~\cite{Lee2010}. The captured data relates to a single viewer in a given context. By using proper machine learning algorithms, this data can provide valuable information about viewers. Knowing this information can be very useful for CPs to improve their services aiming to increase the audience and enrich user experience. As an example, CPs can deliver personalized content for a single person as well as for groups of people by using content recommendation algorithms.
+The captured data relates to a single viewer in a given context. By using proper machine learning algorithms, this data can provide valuable information about viewers. Knowing this information can be very useful for CPs to improve their services aiming to increase the audience and enrich user experience. As an example, CPs can deliver personalized content for a single person as well as for groups of people by using content recommendation algorithms.
+
+An implementation of the architecture described in this paper was made using a commercial cloud computing environment, which plays the role of the CP infrastructure. A web application that consists of a content rating system was developed for both storing and retrieving viewers' tastes toward audio visual content provided by the CPs. Some RESTful web services were developed to store and retrieve viewers' interactions. The secondary screen applications were developed in Java and the viewer's interaction data were saved by means of HTTP requests.
 
 The architecture described in this paper is also technically feasible to implement in Digital TV (DTV) systems and can be particularly interesting for CPs in DTV standards like the Brazilian (ISDB-TB) and the Japanese(ISDB-T). These standards support the use of mobile devices as part of the system. Since the mobile devices support the implementation of the DTV middleware, a cooperative exhibition of the DTV application can be managed with the iTV device, thus enabling the capture of viewers' interactions and contextual data.
-
-Nowadays, viewers rarely just sit passively and watch TV. In many situations, they use their personal devices as a secondary screen to perform activities related to TV watching, which end up enriching and immersing the user into the TV experience. 
-
-% \blurb{Seria bom incluir algum resultado de experimento na conclusao}
 
 \bibliographystyle{IEEEtran}
 \bibliography{biblio}
