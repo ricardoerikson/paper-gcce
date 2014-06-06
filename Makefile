@@ -94,4 +94,4 @@ view:
 	@${PDF_VIEWER} ${OUTPUTDIR}/${OUTPUTFILE}
 
 rm_helper:
-	@./rm-helper '${SRCDIR}|${OUTPUTDIR}|${TMPDIR}|${PROJECT_FILE}|Makefile|.gitignore|.git|rm-helper'
+	@./rm-helper '${SRCDIR}|${OUTPUTDIR}|${TMPDIR}|${PROJECT_FILE}|Makefile|README.md|.gitignore|.git|rm-helper'
