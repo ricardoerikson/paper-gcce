@@ -40,6 +40,12 @@ Given the limitations of the conventional RC, a novel secondary screen architect
 
 Since personal devices are almost ubiquitous, they stand out as a powerful mechanism to identify viewers by means of wireless communication technologies~\cite{Cabarcos2011}. In the architecture described in this paper, personal devices play an additional role as a medium of interaction since they are easy and intuitive to use in iTV environments, as pointed out in~\cite{Courtois2012}. An approach described in~\cite{Teixeira2010} has shown an architecture to capture viewers' interactions through a conventional RC. The architecture described in this paper goes further and captures individual and contextualized data. Since the TV environment is shared, the data about nearby viewers is captured to contextualize the interaction with the purpose of helping to infer the behaviors of one viewer toward others ones.
 
+\section{Background}
+\subsection{Secondary Screen Usage in iTV}
+\subsection{Viewers' Interaction Data}
+
+\section{Overview of the Secondary Screen Architecture}
+
 \section{Secondary Screen Architecture}
 
 Initially, the CP infrastructure must provide an authentication mechanism so that viewers and their interactive TV (iTV) devices (e.g., set-top boxes or smart TVs) can be authenticated by the CP in order to use the secondary screen services. Once one iTV device is authenticated, the viewers in the TV environment must link their user accounts up with the iTV device. As a result, the viewer can use their personal device as a secondary screen, for that iTV device, in order to capture the viewers' interactions.
@@ -60,6 +66,32 @@ Viewers can use their secondary screen device to interact with TV by evaluating,
 The Data Writer service in the application hosting infrastructure consists basically of web services that provide interoperability among secondary screen devices, iTV devices and the CP infrastructure. The main advantage of this approach is the independence of operating system and programming languages used in the personal devices.
 
 Once the audience data is stored, the CP can use this data to derive valuable information about users' tastes. This information can be used to provide personalized content to viewers based on the current context. Thus, the personalized content can be delivered via Internet to the secondary screen device or even to the TV, depending on the context.
+
+\subsection{Web Services Design}
+
+- RESTful API
+
+- Resources
+
+\subsection{iTV Environment}
+
+- set-top box
+
+- Service discovery
+
+- context synchronization
+
+\subsection{Second Screen Devices}
+
+\section{Secondary Screen Implementation}
+
+\subsection{RESTful API}
+
+\subsection{Web Service Consumption}
+
+\subsection{iTV and Secondary Screen Devices Communication}
+
+\section{Experiments}
 
 \section{Conclusions}
 
