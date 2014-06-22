@@ -7,7 +7,7 @@
 
 \begin{document}
 
-\title{A Second Screen Architecture for Capturing Explicit Viewers' Interactions in TV Environments}
+\title{A Second Screen Architecture for Capturing Viewers' Interaction Data in TV Environments}
 \author{Ricardo~Erikson~V.~de~S.~Rosa, 
 	Vicente~Ferreira~de~Lucena~Jr.,\IEEEmembership{Member,IEEE,}
 	and~Lucas~Carvalho~Cordeiro
@@ -34,8 +34,6 @@ TV watching is essentially a social activity, where groups of people with a comm
 
 The conventional remote control (RC) is typically seen as the standard medium of interaction among the viewers and their TVs. However, this medium presents two notable problems: (1) to precisely and automatically identify the viewers who have possession of the RC; and (2) to capture contextualized viewers' interactions. As a result, the entire group of viewers (e.g., a family) is treated as a single viewer and the tastes that were inferred from the users in charge of the RC can be imposed on the tastes of the others.
 
-The interactions between viewers and TV can be classified as implicit and explicit. Implicit interactions are part of the natural actions of watching TV e.g., changing channels. In explicit interactions, viewers contribute by actively evaluating, commenting or sharing their opinion about a given content. Both kinds of interaction are important for applications that rely on audience generated data.
-
 Given the limitations of the conventional RC, a novel secondary screen architecture to identify viewers who are interacting with interactive TV (iTV) services is presented in this paper. Personal devices (e.g., smartphones and tablets) are used as secondary screens with the aim of capturing personal and contextualized interactions from each active viewer in iTV environments. By using proper machine learning algorithms, the personal and contextualized data can reveal important information about viewers' tastes~\cite{Kim2012,Shin2009}. 
 
 Since personal devices are almost ubiquitous, they stand out as a powerful mechanism to identify viewers by means of wireless communication technologies~\cite{Cabarcos2011}. In the architecture described in this paper, personal devices play an additional role as a medium of interaction since they are easy and intuitive to use in iTV environments, as pointed out in~\cite{Courtois2012}. An approach described in~\cite{Teixeira2010} has shown an architecture to capture viewers' interactions through a conventional RC. The architecture described in this paper goes further and captures individual and contextualized data. Since the TV environment is shared, the data about nearby viewers is captured to contextualize the interaction with the purpose of helping to infer the behaviors of one viewer toward others ones.
@@ -51,10 +49,12 @@ Nowadays, TV viewers rarely just sit passively and watch TV. In many situations,
 
 Research studies on second screen have been conducted in TV environments since late 1990s. In 1996, Robertson~\emph{et~al}.~\cite{Robertson1996} developed a prototype where handheld devices were used to control TV and to provide additional content (e.g., textual information) related to the audio-visual content presented in the TV screen. More recent studies show that viewers evaluated positively the use of second screen devices to control the TV and to enrich the TV content~\cite{Cesar2008,Cesar2011,Tsekleves2011}. Cesar~\emph{et~al.}~\cite{Cesar2009} contributed identifying and modeling the requirements to implement an interactive TV architecture based on second screen devices.
 
-A review of the related works shown that the usage of personal devices as second screen devices has some advantages. Firstly, the visual elements 
+A review of the related works shown that the usage of personal devices as second screen devices has two main advantages. Firstly, the visual elements (e.g., an EPG guide) that are commonly shown on the TV screen can be presented on the second screen device in such a way that the viewing experience of other viewers is not affected. Secondly, the second screen device can enhance the capabilities of a conventional remote control by providing more sophisticated interactions, e.g., gesture and voice commands. 
 
 \subsection{Capture of Viewers' Interaction Data}
 \label{ssec_capture_viewers_int_data}
+
+The interactions between viewers and TV can be classified as implicit and explicit. Implicit interactions are part of the natural actions of watching TV e.g., changing channels and adjust sound volume. In explicit interactions, viewers contribute by actively performing actions that are not usual in the their experience from conventional TV. Such actions include among other things, evaluating audio-visual content, commenting and sharing opinion about a given content through iTV applications. Both kinds of interaction are important for services that rely on audience generated data, e.g., content personalization and targeted advertising.
 
 With respect to interaction capture, an approach described in~\cite{Teixeira2010} shown an architecture to capture contextualized viewers interactions through a conventional RC. In this paper, we present an architecture that facilitates the identification of viewers, which is useful to contextualize the interactions. In addition, the identification of viewers facilitates the capture of their individual interactions.
 
