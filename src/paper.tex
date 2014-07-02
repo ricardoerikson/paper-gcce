@@ -38,6 +38,8 @@ Given the limitations of the conventional RC, a novel secondary screen architect
 
 Since personal devices are almost ubiquitous, they stand out as a powerful mechanism to identify viewers by means of wireless communication technologies~\cite{Cabarcos2011}. In the architecture described in this paper, personal devices play an additional role as a medium of interaction since they are easy and intuitive to use in iTV environments, as pointed out in~\cite{Courtois2012}. An approach described in~\cite{Teixeira2010} has shown an architecture to capture viewers' interactions through a conventional RC. The architecture described in this paper goes further and captures individual and contextualized data. Since the TV environment is shared, the data about nearby viewers is captured to contextualize the interaction with the purpose of helping to infer the behaviors of one viewer toward others ones.
 
+The sections of this paper are arranged as follows: \ldots
+
 \section{Background}
 
 The key concepts and some relevant related works that underpin the proposed architecture are described in this section. Section~\ref{ssec_ss_usage} presents the usage of second screen devices in iTV environments. Section~\ref{ssec_capture_viewers_int_data} describes the current status of research on the capture of viewers' interactions. The identification of viewers in iTV environments is described in Section~\ref{ssec_ident_viewers_itv}.
@@ -86,7 +88,7 @@ A web application is hosted in the application hosting infrastructure. This appl
 
 A presence service detects physically nearby second screen devices that have the services necessary to establish a communication with an iTV terminal. This feature is particularly appropriated for the TV environment, once second screen devices are usually connected with an iTV terminal via WiFi. The devices are synchronized in order to update the contextual data about the viewer profile, amount of people using a second screen devices in the room and content being watched. This contextual data can be used to learn how a viewer behaves towards other viewers. For example, a viewer behaves in a particular way while watching TV alone and the same viewer behaves in a different way while watching in group.
 
-The second screen devices and iTV terminals have client applications that consume the web services in order to present the content to the viewers. These client applications also use the web services as an interface to send interaction data to the CP. Since applications in the TV domain have the potential to reach out millions of users at the same time, it is interesting to consider the use of a cloud based platform in the CP infrastructure~\cite{Lee2010}. 
+The second screen devices and iTV terminals have client applications that consume the web services in order to present the content to the viewers. These client applications also use the web services as an interface to send interaction data to the CP. 
 
 % descrever a possibilidade de autenticação em outra parte do texto: A possible way to do so is to generate a registration code for each equipment 
 
@@ -104,7 +106,11 @@ Once the audience data is stored, the CP can use this data to derive valuable in
 
 \subsection{Application Hosting Infrastructure}
 
-...
+Since applications in the TV domain have the potential to reach out millions of users at the same time, it is interesting to consider the use of a cloud based platform for storing and processing data~\cite{Lee2010}. 
+
+The front controller architectural design pattern~\cite{Buschmann2007} is employed to centralize requests processing in a single component. Each second screen client sends requests to and receives responses from a single URL, what simplifies application development.
+
+- Web application
 
 \subsection{iTV Environment}
 
