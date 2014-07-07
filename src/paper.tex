@@ -101,12 +101,14 @@ The second screen devices and iTV terminals have client applications that consum
 Viewers can use their secondary screen device to interact with TV by evaluating, commenting, sharing, or even recommending TV content to other viewers. The data related to those actions are naturally provided by the viewers, as part of the interaction, when using interactive applications (developed by the CP) installed in their secondary screen devices. The interactions and the contextual data are represented by the audience data, which is sent to CP infrastructure through Internet. Then, a Data Writer service stores the audience data related to each particular viewer and the iTV device.
 
 The Data Writer service in the application hosting infrastructure consists basically of web services that provide interoperability among secondary screen devices, iTV devices and the CP infrastructure. The main advantage of this approach is the independence of operating system and programming languages used in the personal devices.
-
+ 
 Once the audience data is stored, the CP can use this data to derive valuable information about users' tastes. This information can be used to provide personalized content to viewers based on the current context. Thus, the personalized content can be delivered via Internet to the secondary screen device or even to the TV, depending on the context.
 
 \subsection{Application Hosting Infrastructure}
 
-Since applications in the TV domain have the potential to reach out millions of users at the same time, it is interesting to consider the use of a cloud based platform for storing and processing data~\cite{Lee2010}. 
+The application hosting infrastructure (AHI) consists of a server environment that provides the necessary computing resources to run a web application and make it available to client applications. This infrastructure can be owned by the CP or it can be hired from a third party service provider. As a matter of fact, the web applications hosted in the AHI are responsible for providing the interactive content that can be accessed by the second screen clients. In addition, the web applications offer features for storing and processing data.
+
+Cloud computing can be used to quickly scale up and scale down according to workload demands. Since applications in the TV domain have the potential to reach out millions of users at the same time, it is interesting to consider the use of a cloud based platform for storing and processing data~\cite{Lee2010}.
 
 The front controller architectural design pattern~\cite{Buschmann2007} is employed to centralize requests processing in a single component. Each second screen client sends requests to and receives responses from a single URL, what simplifies application development.
 
