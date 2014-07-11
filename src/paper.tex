@@ -110,12 +110,12 @@ The application hosting infrastructure (AHI) consists of a server environment th
 
 The TV domain has the potential of facing very different audience ratings. As a result, the amount of viewers using a particular iTV service can drastically change during the day. So, an important requirement for shared iTV services is to dynamically scale up and down the computing resources according to workload demands. Researchers have proposed novel ideas based on cloud-computing environments to tackle this requirement~\cite{Lee2010,Lai2011}. Since the architecture presented in this paper is intended to support a potentially large amount of viewers, the use of a cloud-computing infrastructure is considered in order to handle the requests from client applications.
 
-\subsection{Web Environment}
-\label{ssub_web_environment}
+\subsection{Web Application}
+\label{ssub_web_application}
 
-Request handling is carried out by using the front controller architectural design pattern~\cite{Buschmann2007}. It is employed to centralize requests processing in a single component. Each second screen client sends requests to and receives responses from a single URL, what simplifies application development.
+The web applications can be hosted in the AHI
 
-- Web application
+The requests handling is carried out by using the front controller architectural design pattern~\cite{Buschmann2007}. It is employed to centralize requests processing in a single component, which facilitates the design and implementation of services for different clients. As a result, client applications developed for different operating systems and send requests to and receive response from a single URL.
 
 \subsection{iTV Environment}
 
