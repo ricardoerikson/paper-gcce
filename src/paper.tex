@@ -121,6 +121,8 @@ The HTTP requests handling is carried out by using the front controller architec
 
 The iTV environment consists of an iTV terminal, which can be an set-top box or some iTV terminal with some sort of communication technology e.g., WiFi or Bluetooth. This environment has some services to facilitate the communication with second screen devices. The first one is the Presence Detector Service (PDS), which is in charge of discovering nearby second screen devices. The PDS is connected with another service known as Profile Handler Service (PHS), which aims to perform profile management at each moment when new second screen devices are found in the iTV environment.
 
+% describe a device to device communication
+
 \subsection{Second Screen Devices}
 
 The second screen devices are clients that communicate with the web application in order to provide interactive capabilities with the content being watched in the TV terminal. The communication between second screen clients and the web application is made through HTTP requests to the web services. Basically, there are two types of communication between clients and the web application: retrieval the content from the web server and transmission of the captured interactions to the web server. Since these types communication occurs between client and a web server, Internet connection is required to accomplish the requests.
@@ -131,13 +133,17 @@ The interactions captured from the viewers are transmitted to the web server by 
 
 \section{Secondary Screen Implementation}
 
+The architecture described in this paper combines several concepts and technologies, e.g. second screen, interactive television, mobile applications, device to device communication and web technologies.
+
 \subsection{RESTful API Design and Implementation}
 
 \subsection{Web Service Consumption}
 
 \subsection{iTV and Secondary Screen Devices Communication}
 
-\section{Experiments}
+\subsection{Experiment}
+
+ - Content rating systems
 
 \section{Conclusions}
 
