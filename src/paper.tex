@@ -123,17 +123,11 @@ The iTV environment consists of an iTV terminal, which can be an set-top box or 
 
 \subsection{Second Screen Devices}
 
-The second screen devices are clients that communicate with the web application in order to provide interactive capabilities with the content being watched in the TV terminal. The communication between second screen clients and the web application is made through HTTP requests to the web services. Basically, there are two types of communication between clients and the web application: retrieval the content from the web server and transmission of the captured interactions to the web server.
+The second screen devices are clients that communicate with the web application in order to provide interactive capabilities with the content being watched in the TV terminal. The communication between second screen clients and the web application is made through HTTP requests to the web services. Basically, there are two types of communication between clients and the web application: retrieval the content from the web server and transmission of the captured interactions to the web server. Since these types communication occurs between client and a web server, Internet connection is required to accomplish the requests.
 
-The content presented on the second screen client, which is related to the TV content, is retrieved from the web server and it is formated to be shown on a specially designed native application.
+The retrieval of content from the web server happens when the client application performs a specially designed HTTP request aiming to obtain the content from a specified resource. The content obtained from this request is then shown by the client application on the second screen device.
 
-- Presentation of the content
-
-- Capture of viewers interactions (using the WEB service)
-
-- web services Consumption
-
-- web services usage
+The interactions captured from the viewers are transmitted to the web server by using the same principle of the retrieval of content. A HTTP request is sent to the web service. However, in this case, the request is designed to submit the data to a specified resource in order to be processed by the web application.
 
 \section{Secondary Screen Implementation}
 
