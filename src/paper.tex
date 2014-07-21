@@ -2,6 +2,7 @@
 
 \usepackage{cite}
 \usepackage{graphicx}
+\usepackage{array}
 
 \newcommand{\blurb}[1]{\marginpar{{\tt !!!}}{\tt [... #1 ...]}}
 
@@ -139,7 +140,30 @@ The architecture described in this paper combines several concepts and technolog
 
 A open source web framework~\cite{Walls2011} was used to develop the server side of the architecture, i.e., the web application. This framework facilitates the development of the front controller pattern in web-based application. Thus, all the requests are tunneled through a single entry point, which is an efficient way to implement a command-based mechanism. This mechanism not only routes and dispatches commands to appropriate handlers, but also exposes a flexible and scalable API structure.
 
-
+\begin{table}[!t]
+	\label{tab_web_services_design}
+	\renewcommand{\arraystretch}{1.3}
+	\caption{Description of the strategies to handle CRUD by mapping HTTP methods onto URIs.}
+	\centering
+	\begin{tabular}{|l|c|p{3.5cm}|}
+		\hline
+		\bfseries Resource & \bfseries HTTP Method & \bfseries
+		\tabularnewline\hline
+		/resource & GET& Retrieves a list of the specified resource 
+		\tabularnewline\hline
+		/resource/\emph{\{id\}} & GET & Retrieves a specific resource identified by \emph{\{id\}}
+		\tabularnewline\hline
+		/resource & POST & Creates a new resource 
+		\tabularnewline
+		\hline
+		/resource/\emph{\{id\}} & PUT & Updates a resource identified by \{id\}
+		\tabularnewline
+		\hline
+		/resource/\emph{\{id\}} & DELETE & Deletes a resource identified by \emph{\{id\}}
+		\tabularnewline
+		\hline
+	\end{tabular}
+\end{table}
 
 \subsection{Web Service Consumption}
 
