@@ -8,7 +8,7 @@
 
 \begin{document}
 
-\title{A Second Screen Architecture for Capturing Viewers' Interaction Data in TV Environments}
+\title{Capture of Individualized Viewers' Interactions in Interactive TV Environments}
 \author{Ricardo~Erikson~V.~de~S.~Rosa, 
 	Vicente~Ferreira~de~Lucena~Jr.,\IEEEmembership{Member,IEEE,}
 	and~Lucas~Carvalho~Cordeiro
@@ -31,123 +31,81 @@ Second screen devices, Interactive Television, Viewers' Interactions
 
 \section{Introduction}
 
-TV watching is essentially a social activity, where groups of people with a common interest share the same space and TV set for entertainment or information~\cite{Masthoff2004}. After many advances in technologies for interactive and digital TV, it is possible to develop high-level applications to enrich the watching experience. Thus, the interaction between viewers and TV became more elaborated than simply change channels and adjust sound volume. In this scenario, .
+TV watching is essentially a social activity, where groups of people with a common interest share the same space and TV set for entertainment or information. After many advances in technologies for interactive TV (iTV), it is possible to develop high-level applications to enrich the watching experience. Thus, the interaction between viewers and TV became more elaborated than simply change channels and adjust sound volume. Many iTV products, such as Google TV, Apple TV and smart TVs from several manufactures have contributed significantly to this scenario, since they carry a wide variety of services, e.g., news, games and shopping.
 
-The conventional remote control (RC) is typically seen as the standard medium of interaction among the viewers and their TVs. However, this medium presents two notable problems: (1) to precisely and automatically identify the viewers who have possession of the RC; and (2) to capture contextualized viewers' interactions. As a result, the entire group of viewers (e.g., a family) is treated as a single viewer and the tastes that were inferred from the users in charge of the RC can be imposed on the tastes of the others.
+The data that is collected from viewers during their interactions with iTV services can provide valuable information for iTV personalization, specially when it is individualized and comes from millions of viewers. Unfortunately, the traditional model of interaction between viewer and TV, which uses a conventional remote control (RC), hinders to obtain this individualized data~\cite{Cesar2008}. The only existing remote control is shared by many viewers and it is difficult to manage who is in possession of the remote control at a given moment. Consequently, it is also difficult to provide high quality personalization, since the tastes that were inferred from the users in charge of the RC can be imposed on the tastes of the others.
 
-Given the limitations of the conventional RC, a novel secondary screen architecture to identify viewers who are interacting with interactive TV (iTV) services is presented in this paper. Personal devices (e.g., smartphones and tablets) are used as secondary screens with the aim of capturing personal and contextualized interactions from each active viewer in iTV environments. By using proper machine learning algorithms, the personal and contextualized data can reveal important information about viewers' tastes~\cite{Kim2012,Shin2009}. 
-
-Since personal devices are almost ubiquitous, they stand out as a powerful mechanism to identify viewers by means of wireless communication technologies~\cite{Cabarcos2011}. In the architecture described in this paper, personal devices play an additional role as a medium of interaction since they are easy and intuitive to use in iTV environments, as pointed out in~\cite{Courtois2012}. An approach described in~\cite{Teixeira2010} has shown an architecture to capture viewers' interactions through a conventional RC. The architecture described in this paper goes further and captures individual and contextualized data. Since the TV environment is shared, the data about nearby viewers is captured to contextualize the interaction with the purpose of helping to infer the behaviors of one viewer toward others ones.
-
-The sections of this paper are arranged as follows: \ldots
-
-\section{Background}
-
-The key concepts and some relevant related works that underpin the proposed architecture are described in this section. Section~\ref{ssec_ss_usage} presents the usage of second screen devices in iTV environments. Section~\ref{ssec_capture_viewers_int_data} describes the current status of research on the capture of viewers' interactions. The identification of viewers in iTV environments is described in Section~\ref{ssec_ident_viewers_itv}.
-
-\subsection{Second Screen Usage in iTV}
-\label{ssec_ss_usage}
-
-Nowadays, TV viewers rarely just sit passively and watch TV. In many situations, they use second screen devices to perform activities related to TV watching. In the context of TV, second screen refers to the use of a computing device, which is usually a smartphone or a tablet PC, to enhance the viewing experience.
-
-Research studies on second screen have been conducted in TV environments since late 1990s. In 1996, Robertson~\emph{et~al}.~\cite{Robertson1996} developed a prototype where handheld devices were used to control TV and to provide additional content (e.g., textual information) related to the audio-visual content presented in the TV screen. More recent studies show that viewers evaluated positively the use of second screen devices to control the TV and to enrich the TV content~\cite{Cesar2008,Cesar2011,Tsekleves2011}. Cesar~\emph{et~al.}~\cite{Cesar2009} contributed identifying and modeling the requirements to implement an interactive TV architecture based on second screen devices.
-
-A review of the related works shown that the usage of personal devices as second screen devices has two main advantages. Firstly, the visual elements (e.g., an EPG guide) that are commonly shown on the TV screen can be presented on the second screen device in such a way that the viewing experience of other viewers is not affected. Secondly, the second screen device can enhance the capabilities of a conventional remote control by providing more sophisticated interactions, e.g., gesture and voice commands. 
-
-\subsection{Capture of Viewers' Interaction Data}
-\label{ssec_capture_viewers_int_data}
-
-The interactions between viewers and TV can be classified as implicit and explicit. Implicit interactions are part of the natural actions of watching TV e.g., changing channels and adjust sound volume. In explicit interactions, viewers contribute by actively performing actions that are not usual in the their experience from conventional TV. Such actions include among other things, evaluating audio-visual content, commenting and sharing opinion about a given content through iTV applications. Both kinds of interaction are important for services that rely on audience generated data, e.g., content personalization, targeted advertising or content improvement.
-
-Some researchers proposed mechanisms to capture viewers' interactions in TV environments~\cite{Teixeira2010,Basilio2013,DosSantos2013}. Teixeira~\emph{et~al.}~\cite{Teixeira2010} described an infrastructure to capture both implicit and explicit interactions that are performed by means of a conventional remote control. The remote control events are recorded in XML format using elements to describe contextual information, implicit and explicit interactions. Basílio~\emph{et~al.}~\cite{Basilio2013} described two methods for capturing viewers interactions: (1) one using a middleware extension, which adds new functionalities to an existing standard; and (2) another one using applications that are added to the broadcaster data stream, which requires no changes in the middleware.
-
-Another research study conduced by Santos and Bianchini~\cite{DosSantos2013}, described a advertising system for interactive TV, which uses viewers interactions in order to generate targeted advertising. Basically, the described system implicitly captures metadata (e.g., the category of a TV program) information when interactions take place.
-
-The data generated by viewers' interactions can provide valuable information to improve TV personalization, especially when data comes from millions of viewers. For instance, viewers can change quickly the channel when a TV program loses their interest. Knowing when the channel change occurs can help producers to improve the content in order to increase viewers interest.
-
-\subsection{Viewers' Identification in iTV}
-\label{ssec_ident_viewers_itv}
-
-Since the TV environment can be shared by many viewers (e.g., a family or a group of friends), audience identification becomes an important feature for interactive TV systems. Many modern computational systems consist of identifying viewers in order to provide personalized services. Unfortunately, the traditional model of interaction, which uses a conventional remote control, hinders the identification of viewers. The only existing remote control is shared by many viewers and it is difficult to manage who is in possession of the remote control at a given moment.
-
-Some research studies have addressed automated technologies for viewers' identification in interactive TV environments. Cabarcos~\emph{et~al.}~\cite{Cabarcos2011} described an architecture that uses the connectivity capabilities of smartphones to detect viewers nearby the TV terminal at every moment. Each smartphone has a hardware identifier(e.g., the Bluetooth MAC address), which is associated to a viewer identifier according to an association table. Hwang~\emph{et~al.}~\cite{Hwang2007} presented a method based on face recognition to identify viewers in interactive TV environments. The method uses sensors to capture images of the audience and then employs images processing techniques and machine learning algorithm for both detecting and recognizing the faces of the viewers.
+In this paper it is presented a novel secondary screen architecture to capture individualized viewers' interactions with iTV services. Personal devices (e.g., smartphones and tablets) are used as secondary screens with the aim of capturing personal interactions from each viewer that is actively interacting with the iTV terminal.In addition, the interactive capabilities of personal devices can provide a powerful interface for users~\cite{Lee2013}.
 
 \section{Overview of the Second Screen Architecture}
 
-The architecture presented in this paper applies to the capture of audience interactions by means of the use of second screen devices in interactive TV environments. Personal devices are used as second screen devices to enrich the interactivity between viewers and TV at the same time that they facilitate the capture of viewers' interactions.
+The overall architecture of the system is presented in \figurename~\ref{fig_architecture}. This architecture consists of tree parts that interact with each other: (1) second screen devices, which are the personal devices; an (2) iTV terminal; and (3) the content provider infrastructure. The CP infrastructure includes an application hosting infrastructure, which comprises the computing resources (e.g., application server, database services and storage services) that are necessary to host web applications. %The dashed arrows represent the data flowing from the viewer to the CP infrastructure, while dotted arrows denote the flow from CP infrastructure to the viewers. The continuous arrows represent the data flow inside the CP infrastructure.
 
+% Trocar essa figura
 \begin{figure}[!t]
 	\centering
 	\includegraphics[width=3.5in]{img/architecture-overview.pdf}
-	\caption{Architecture to capture audience interactions. The viewers' interactions and the contextual information are captured and stored in the CP infrastructure.}
+	\caption{Architecture to capture audience interactions. The data is captured and stored in the CP infrastructure.}
 	\label{fig_architecture}
 \end{figure}
 
-An overview of the architecture described in this paper is presented in \figurename~\ref{fig_architecture}. This architecture consists of tree subsystems that interact with each other: (1) second screen devices, which are personal devices; an (2) iTV terminal; and (3) the CP infrastructure. The CP infrastructure includes an application hosting infrastructure, which comprises the computing resources (e.g., application server, database services and storage services) that are necessary to host web applications. The dashed arrows represent the data flowing from the viewer to the CP infrastructure, while dotted arrows denote the flow from CP infrastructure to the viewers. The continuous arrows represent the data flow inside the CP infrastructure.
+A web application is hosted in the application hosting infrastructure. This application contains web services that are designed for interoperability between the second screen devices, the iTV terminal and the CP infrastructure. A authentication mechanism must be provided so that the viewers can connect their second screen devices and interactive TV terminals (e.g., set-top boxes or smart TVs) with an user account. Once the authentication is completed, the second screen device can be used to interact with the iTV terminal. By using the authentication mechanism and considering the second screen client as being a personal device, every user interacting with the iTV terminal can be properly identified.
 
-A web application is hosted in the application hosting infrastructure. This application contains web services that are designed for interoperability between the second screen devices, the iTV terminal and the CP infrastructure. A authentication mechanism must be provided so that the viewers can connect their second screen devices and interactive TV terminals (e.g., set-top boxes or smart TVs) with an user account. Once the authentication is completed, the second screen device can be used to interact with the iTV terminal.
-
-A presence service detects physically nearby second screen devices that have the services necessary to establish a communication with an iTV terminal. This feature is particularly appropriate for the TV environment, once second screen devices are usually connected with an iTV terminal via WiFi. The devices are synchronized in order to update the contextual data about the viewer profile, amount of people using a second screen devices in the room and content being watched. This contextual data can be used to learn how a viewer behaves towards other viewers. For example, a viewer behaves in a particular way while watching TV alone and the same viewer behaves in a different way while watching in group.
+A presence service detects physically nearby second screen devices that have the services necessary to establish a communication with an iTV terminal. This feature is particularly appropriate for the TV environment, once second screen devices are usually connected with an iTV terminal via WiFi.
 
 The second screen devices and iTV terminals have client applications that consume the web services in order to present the content to the viewers. These client applications also use the web services as an interface to send interaction data to the CP. 
 
-% descrever a possibilidade de autenticação em outra parte do texto: A possible way to do so is to generate a registration code for each equipment 
+% \section{Second Screen Architecture}
 
-% commentar sobre a sincronização de contexto entre iTV terminals e second screen devices.
+% Viewers can use their secondary screen device to interact with TV by evaluating, commenting, sharing, or even recommending TV content to other viewers. The data related to those actions are naturally provided by the viewers, as part of the interaction, when using interactive applications (developed by the CP) installed in their secondary screen devices. The interactions and the contextual data are represented by the audience data, which is sent to CP infrastructure through Internet. Then, a Data Writer service stores the audience data related to each particular viewer and the iTV device.
 
-
-\section{Second Screen Architecture}
-
-
-Viewers can use their secondary screen device to interact with TV by evaluating, commenting, sharing, or even recommending TV content to other viewers. The data related to those actions are naturally provided by the viewers, as part of the interaction, when using interactive applications (developed by the CP) installed in their secondary screen devices. The interactions and the contextual data are represented by the audience data, which is sent to CP infrastructure through Internet. Then, a Data Writer service stores the audience data related to each particular viewer and the iTV device.
-
-The Data Writer service in the application hosting infrastructure consists basically of web services that provide interoperability among secondary screen devices, iTV devices and the CP infrastructure. The main advantage of this approach is the independence of operating system and programming languages used in the personal devices.
+% The Data Writer service in the application hosting infrastructure consists basically of web services that provide interoperability among secondary screen devices, iTV devices and the CP infrastructure. The main advantage of this approach is the independence of operating system and programming languages used in the personal devices.
  
-Once the audience data is stored, the CP can use this data to derive valuable information about users' tastes. This information can be used to provide personalized content to viewers based on the current context. Thus, the personalized content can be delivered via Internet to the secondary screen device or even to the TV, depending on the context.
+% Once the audience data is stored, the CP can use this data to derive valuable information about users' tastes. This information can be used to provide personalized content to viewers based on the current context. Thus, the personalized content can be delivered via Internet to the secondary screen device or even to the TV, depending on the context.
 
-\subsection{Application Hosting Infrastructure}
+% \subsection{Application Hosting Infrastructure}
 
-The application hosting infrastructure (AHI) consists of a server environment that provides the necessary computing resources to run a web application and make it available to client applications. This infrastructure can be owned by the CP or it can be hired from a third party service provider. As a matter of fact, the web applications hosted in the AHI are responsible for providing the interactive content that can be accessed by the second screen clients. In addition, the web applications offer features to store and to process interaction data obtained from the viewers.
+% The application hosting infrastructure (AHI) consists of a server environment that provides the necessary computing resources to run a web application and make it available to client applications. This infrastructure can be owned by the CP or it can be hired from a third party service provider. As a matter of fact, the web applications hosted in the AHI are responsible for providing the interactive content that can be accessed by the second screen clients. In addition, the web applications offer features to store and to process interaction data obtained from the viewers.
 
-The TV domain has the potential of facing very different audience ratings. As a result, the amount of viewers using a particular iTV service can drastically change during the day. So, an important requirement for shared iTV services is to dynamically scale up and down the computing resources according to workload demands. Researchers have proposed novel ideas based on cloud-computing environments to tackle this requirement~\cite{Lee2010,Lai2011}. Since the architecture presented in this paper is intended to support a potentially large amount of viewers, the use of a cloud-computing infrastructure is considered in order to handle the requests from client applications.
+% The TV domain has the potential of facing very different audience ratings. As a result, the amount of viewers using a particular iTV service can drastically change during the day. So, an important requirement for shared iTV services is to dynamically scale up and down the computing resources according to workload demands. Researchers have proposed novel ideas based on cloud-computing environments to tackle this requirement~\cite{Lee2010,Lai2011}. Since the architecture presented in this paper is intended to support a potentially large amount of viewers, the use of a cloud-computing infrastructure is considered in order to handle the requests from client applications.
 
-\subsection{Web Application}
-\label{ssub_web_application}
+% \subsection{Web Application}
+% \label{ssub_web_application}
 
-The web applications include the business logic, models and controllers that are necessary for the proper functioning of the second screen client application. The content that is presented in the client can be requested through HTTP requests to web services designed for this purpose. In addition, the data captured by second screen clients in the iTV environment can also be sent to the CP by using HTTP requests. 
+% The web applications include the business logic, models and controllers that are necessary for the proper functioning of the second screen client application. The content that is presented in the client can be requested through HTTP requests to web services designed for this purpose. In addition, the data captured by second screen clients in the iTV environment can also be sent to the CP by using HTTP requests. 
 
-The HTTP requests handling is carried out by using the front controller architectural design pattern~\cite{Buschmann2007}. It is employed to centralize requests processing in a single component, which facilitates the design and implementation of services for different second screen clients. As a result, client applications can access the same service even when they are developed for different operating systems in different programming languages.
+% The HTTP requests handling is carried out by using the front controller architectural design pattern~\cite{Buschmann2007}. It is employed to centralize requests processing in a single component, which facilitates the design and implementation of services for different second screen clients. As a result, client applications can access the same service even when they are developed for different operating systems in different programming languages.
 
-\subsection{iTV Environment}
+% \subsection{iTV Environment}
 
-The iTV environment consists of an iTV terminal, which can be an set-top box or some iTV terminal with some sort of communication technology e.g., WiFi or Bluetooth. This environment has some services to facilitate the communication with second screen devices. The first one is the Presence Detector Service (PDS), which is in charge of discovering nearby second screen devices. The PDS is connected with another service known as Profile Handler Service (PHS), which aims to perform profile management at each moment when new second screen devices are found in the iTV environment.
+% The iTV environment consists of an iTV terminal, which can be an set-top box or some iTV terminal with some sort of communication technology e.g., WiFi or Bluetooth. This environment has some services to facilitate the communication with second screen devices. The first one is the Presence Detector Service (PDS), which is in charge of discovering nearby second screen devices. The PDS is connected with another service known as Profile Handler Service (PHS), which aims to perform profile management at each moment when new second screen devices are found in the iTV environment.
 
-% describe a device to device communication
+% % describe a device to device communication
 
-\subsection{Second Screen Devices}
+% \subsection{Second Screen Devices}
 
-The second screen devices are clients that communicate with the web application in order to provide interactive capabilities with the content being watched in the TV terminal. The communication between second screen clients and the web application is made through HTTP requests to the web services. Basically, there are two types of communication between clients and the web application: retrieval the content from the web server and transmission of the captured interactions to the web server. Since these types communication occurs between client and a web server, Internet connection is required to accomplish the requests.
+% The second screen devices are clients that communicate with the web application in order to provide interactive capabilities with the content being watched in the TV terminal. The communication between second screen clients and the web application is made through HTTP requests to the web services. Basically, there are two types of communication between clients and the web application: retrieval the content from the web server and transmission of the captured interactions to the web server. Since these types communication occurs between client and a web server, Internet connection is required to accomplish the requests.
 
-The retrieval of content from the web server happens when the client application performs a specially designed HTTP request aiming to obtain the content from a specified resource. The content obtained from this request is then shown by the client application on the second screen device.
+% The retrieval of content from the web server happens when the client application performs a specially designed HTTP request aiming to obtain the content from a specified resource. The content obtained from this request is then shown by the client application on the second screen device.
 
-The interactions captured from the viewers are transmitted to the web server by using the same principle of the retrieval of content. A HTTP request is sent to the web service. However, in this case, the request is designed to submit the data to a specified resource in order to be processed by the web application.
+% The interactions captured from the viewers are transmitted to the web server by using the same principle of the retrieval of content. A HTTP request is sent to the web service. However, in this case, the request is designed to submit the data to a specified resource in order to be processed by the web application.
 
-\section{Secondary Screen Implementation}
+\section{Implementation of the iTV Environment using Second Screen}
 
-The architecture described in this paper combines several concepts and technologies, e.g. second screen, interactive television, mobile applications, device to device communication and web technologies. An implementation of this architecture was developed using the Java programming language in both server and client. However, the proposed approach does not require uniquely the Java programming language and the its use does not subtract the generality of the architecture. Indeed, the architecture can be implemented in other languages provided that they are compatible with the development platforms.
+The architecture described in this paper combines several concepts and technologies, e.g. second screen, interactive television, mobile applications, device to device communication and web technologies. An implementation of this architecture was developed using the Java programming language in both server and client. However, the proposed approach does not require uniquely the Java programming language and its use does not subtract the generality of the architecture. Indeed, the architecture can be implemented in other languages provided that they are compatible with the development platforms.
 
-\subsection{Web Services API Design and Implementation}
+A open source web framework~\cite{Walls2011} was used to develop the server side of the architecture, i.e., the web application. This framework facilitates the development of the front controller pattern in web-based applications. Thus, all the requests are tunneled through a single entry point, which is an efficient way to implement a command-based mechanism. This mechanism not only routes and dispatches commands to appropriate handlers, but also exposes a flexible and scalable API structure.
 
-A open source web framework~\cite{Walls2011} was used to develop the server side of the architecture, i.e., the web application. This framework facilitates the development of the front controller pattern in web-based application. Thus, all the requests are tunneled through a single entry point, which is an efficient way to implement a command-based mechanism. This mechanism not only routes and dispatches commands to appropriate handlers, but also exposes a flexible and scalable API structure.
+Table~\ref{tab_web_services_design} describes the design of the Unified Resource Identifiers (URIs) to provide a mechanism of interaction between second screen devices and the web application. The CRUD\footnote{Create, Read, Update and Delete} operations can be requested by requested by the second screen client by using a proper resource and selecting a proper HTTP method. Thus, the second screen clients can retrieve the content from the server in order to present personalized content to the client.
 
 \begin{table}[!t]
 	\label{tab_web_services_design}
 	\renewcommand{\arraystretch}{1.3}
-	\caption{Description of the strategies to handle CRUD by mapping HTTP methods onto URIs.}
+	\caption{Description of the strategies to handle CRUD by combining HTTP methods and URIs.}
 	\centering
 	\begin{tabular}{|l|c|p{3.5cm}|}
 		\hline
-		\bfseries Resource & \bfseries HTTP Method & \bfseries
+		\bfseries Resource & \bfseries HTTP Method & \bfseries Description of the operation
 		\tabularnewline\hline
 		/resource & GET& Retrieves a list of the specified resource 
 		\tabularnewline\hline
@@ -165,13 +123,9 @@ A open source web framework~\cite{Walls2011} was used to develop the server side
 	\end{tabular}
 \end{table}
 
-\subsection{Web Service Consumption}
+Second screen clients can also perform requests to send content to the web-application. The client application can be designed to track user interactions and 
 
-\subsection{iTV and Secondary Screen Devices Communication}
 
-\subsection{Experiment}
-
- - Content rating systems
 
 \section{Conclusions}
 
