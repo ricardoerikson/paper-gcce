@@ -86,7 +86,7 @@ An overview of the architecture described in this paper is presented in \figuren
 
 A web application is hosted in the application hosting infrastructure. This application contains web services that are designed for interoperability between the second screen devices, the iTV terminal and the CP infrastructure. A authentication mechanism must be provided so that the viewers can connect their second screen devices and interactive TV terminals (e.g., set-top boxes or smart TVs) with an user account. Once the authentication is completed, the second screen device can be used to interact with the iTV terminal.
 
-A presence service detects physically nearby second screen devices that have the services necessary to establish a communication with an iTV terminal. This feature is particularly appropriated for the TV environment, once second screen devices are usually connected with an iTV terminal via WiFi. The devices are synchronized in order to update the contextual data about the viewer profile, amount of people using a second screen devices in the room and content being watched. This contextual data can be used to learn how a viewer behaves towards other viewers. For example, a viewer behaves in a particular way while watching TV alone and the same viewer behaves in a different way while watching in group.
+A presence service detects physically nearby second screen devices that have the services necessary to establish a communication with an iTV terminal. This feature is particularly appropriate for the TV environment, once second screen devices are usually connected with an iTV terminal via WiFi. The devices are synchronized in order to update the contextual data about the viewer profile, amount of people using a second screen devices in the room and content being watched. This contextual data can be used to learn how a viewer behaves towards other viewers. For example, a viewer behaves in a particular way while watching TV alone and the same viewer behaves in a different way while watching in group.
 
 The second screen devices and iTV terminals have client applications that consume the web services in order to present the content to the viewers. These client applications also use the web services as an interface to send interaction data to the CP. 
 
@@ -133,9 +133,13 @@ The interactions captured from the viewers are transmitted to the web server by 
 
 \section{Secondary Screen Implementation}
 
-The architecture described in this paper combines several concepts and technologies, e.g. second screen, interactive television, mobile applications, device to device communication and web technologies.
+The architecture described in this paper combines several concepts and technologies, e.g. second screen, interactive television, mobile applications, device to device communication and web technologies. An implementation of this architecture was developed using the Java programming language in both server and client. However, the proposed approach does not require uniquely the Java programming language and the its use does not subtract the generality of the architecture. Indeed, the architecture can be implemented in other languages provided that they are compatible with the development platforms.
 
-\subsection{RESTful API Design and Implementation}
+\subsection{Web Services API Design and Implementation}
+
+A open source web framework~\cite{Walls2011} was used to develop the server side of the architecture, i.e., the web application. This framework facilitates the development of the front controller pattern in web-based application. Thus, all the requests are tunneled through a single entry point, which is an efficient way to implement a command-based mechanism. This mechanism not only routes and dispatches commands to appropriate handlers, but also exposes a flexible and scalable API structure.
+
+
 
 \subsection{Web Service Consumption}
 
