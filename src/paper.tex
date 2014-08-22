@@ -1,17 +1,18 @@
 \documentclass[conference,a4paper]{IEEEtran}
+\IEEEoverridecommandlockouts
 
 \usepackage{cite}
 \usepackage{graphicx}
 
 \newcommand{\blurb}[1]{\marginpar{{\tt !!!}}{\tt [... #1 ...]}}
-\renewcommand{\baselinestretch}{0.99}
+\renewcommand{\baselinestretch}{0.98}
 
 \begin{document}
 
 \title{A Secondary Screen Architecture to Accurately Capture Viewers' Interactions in an iTV Environment}
 
 \author{\IEEEauthorblockN{Ricardo E. V. de S. Rosa}
-\IEEEauthorblockA{Graduate Program in Electrical Engineering \\ Federal University of Minas Gerais \\ Av. Antônio Carlos 6627, 31270-901, \\Belo Horizonte, MG, Brazil\\
+\thanks{This research was supported by SAMSUNG, CAPES, FAPEAM, and CNPq grants.}\IEEEauthorblockA{Graduate Program in Electrical Engineering \\ Federal University of Minas Gerais \\ Av. Antônio Carlos 6627, 31270-901, \\Belo Horizonte, MG, Brazil\\
 Email: ricardoerikson@ufmg.br}
 \and
 \IEEEauthorblockN{Lucas C. Cordeiro and Vicente F. de Lucena Junior}
@@ -20,7 +21,11 @@ Federal University of Amazonas \\
 Manaus, AM, Brazil\\
 Email: \{lucascordeiro,vicente\}@ufam.edu.br}
 }
+
+
+
 \maketitle
+
 
 \begin{abstract}
 Advances in TV technology have enabled viewers to actively interact with the TV through interactive applications instead of just passively watching TV. Typically, a conventional remote control is shared by many viewers and it is difficult to accurately capture the individual interaction data from each viewer. It is also difficult to identify the context in which the interactions occur, e.g., to manage precisely who is present in the environment and what is being watched on TV. In this paper, it is presented a novel architecture that facilitates the capture of viewers' individual interactions and contextual data in shared TV environments. This architecture uses personal devices as secondary screen devices with the aim of identifying viewers and capturing their interactions with interactive TV devices. A work in progress implementation of this architecture is briefly reported as an audio-visual content rating system for interactive TV.
