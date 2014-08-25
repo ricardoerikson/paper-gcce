@@ -133,11 +133,12 @@ The interactions captured from the viewers are transmitted to the web server by 
 
 \section{Secondary Screen Implementation}
 
-The architecture described in this paper combines several concepts and technologies, e.g. second screen, interactive television, mobile applications, device to device communication and web technologies. An implementation of this architecture was developed using the Java programming language in both server and client. However, the proposed approach does not require uniquely the Java programming language and the its use does not subtract the generality of the architecture. Indeed, the architecture can be implemented in other languages provided that they are compatible with the development platforms.
+%The architecture described in this paper combines several concepts and technologies, e.g. second screen, interactive television, mobile applications, device to device communication and web technologies. 
+An implementation of the architecture described in this paper was developed using the Java programming language in both sides of the architecture. However, the proposed approach does not require uniquely the Java programming language and the its use does not subtract the generality of the architecture. Indeed, the architecture can be implemented in other languages provided that they are compatible with the development platforms and with the concepts described in this paper.
 
 \subsection{Web Services API Design and Implementation}
 
-A open source web framework~\cite{Walls2011} was used to develop the server side of the architecture, i.e., the web application. This framework facilitates the development of the front controller pattern in web-based application. Thus, all the requests are tunneled through a single entry point, which is an efficient way to implement a command-based mechanism. This mechanism not only routes and dispatches commands to appropriate handlers, but also exposes a flexible and scalable API structure.
+A open source web framework~\cite{Walls2011} was used to develop the server side of the architecture, i.e., the web application. This framework facilitates the development of the front controller pattern in web-based application. Thus, all the requests are tunneled through a single entry point, which is an efficient mechanism to implement an API to access the web services. This mechanism not only routes and dispatches the requests to appropriate handlers, but also exposes a flexible and scalable API structure, which can be consumed by second screen devices using different programming languages.
 
 
 
