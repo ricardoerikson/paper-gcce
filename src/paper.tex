@@ -165,7 +165,7 @@ The second screen devices and the iTV terminals need to communicate with the web
 
 Table~\ref{table_web_serv_design} describes how the web services API are designed by combining URIs and HTTP methods. The URI specifies the resource of interest and the HTTP method indicates the desired action to be performed on the resource. Since each HTTP method is intended for a different purpose, it is necessary to identify what actions apply to each resource.
 
-A open source web framework~\cite{Walls2011} was used to develop the server side of the architecture, i.e., the web services. This framework facilitates the development of the front controller pattern in web-based application. Thus, all the requests are tunneled through a single entry point, which is an efficient mechanism to implement an API to access the web services. This mechanism not only routes and dispatches the requests to appropriate handlers, but also exposes a flexible and scalable API structure, which can be consumed by second screen devices using different programming languages.
+A open source web framework~\cite{Wheeler2013} was used to develop the server side of the architecture, i.e., the web services. This framework facilitates the development of the front controller pattern in web-based application. Thus, all the requests are tunneled through a single entry point, which is an efficient mechanism to implement an API to access the web services. This mechanism not only routes and dispatches the requests to appropriate handlers, but also exposes a flexible and scalable API structure, which can be consumed by second screen devices using different programming languages.
 
 \subsection{Web Service Consumption}
 
@@ -181,7 +181,9 @@ The proper combination of URIs and HTTP methods is used to manipulate resources 
 
 \subsection{Experiment}
 
- - Content rating systems
+To motivate the need for using this architecture in second screen-based iTV environments, a scenario that enables the viewer to evaluate TV programs was developed. This scenario uses mobile devices (second screen devices) to present content related to what is being watched on TV. The content is shown in a native application developed for a commercial operating system and this second screen application communicates with a web server through Internet.
+
+The viewers' interactions captured in the application are sent 
 
 \section{Conclusions}
 
