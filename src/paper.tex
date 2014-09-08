@@ -2,6 +2,7 @@
 
 \usepackage{cite}
 \usepackage{graphicx}
+\usepackage{array}
 
 \newcommand{\blurb}[1]{\marginpar{{\tt !!!}}{\tt [... #1 ...]}}
 
@@ -131,20 +132,52 @@ The retrieval of content from the web server happens when the client application
 
 The interactions captured from the viewers are transmitted to the web server by using the same principle of the retrieval of content. A HTTP request is sent to the web service. However, in this case, the request is designed to submit the data to a specified resource in order to be processed by the web application.
 
-\section{Secondary Screen Implementation}
+\section{Implementation of the Secondary Screen Architecture}
 
 %The architecture described in this paper combines several concepts and technologies, e.g. second screen, interactive television, mobile applications, device to device communication and web technologies. 
 An implementation of the architecture described in this paper was developed using the Java programming language in both sides of the architecture. However, the proposed approach does not require uniquely the Java programming language and the its use does not subtract the generality of the architecture. Indeed, the architecture can be implemented in other languages provided that they are compatible with the development platforms and with the concepts described in this paper.
 
 \subsection{Web Services API Design and Implementation}
 
+The second screen devices and the iTV terminals need to communicate with the web application in order to send viewer's interactions and retrieve content from the server. As defined in the Section~\ref{ssub_web_application}, this communication occurs by means of HTTP requests to the web services of the web application. Thus, an API containing the Uniform Resource Identifiers (URIs) and the HTTP methods available for each URI is needed.
+
+\begin{table}
+	\caption{Strategies to perform HTTP requests by combining URIs and HTTP methods.}
+	\label{table_web_serv_design}
+	\centering
+	\begin{tabular}{|m{1.5cm}|>{\centering}m{1cm}|m{5cm}|}
+	\hline
+	\textbf{URI}&\textbf{HTTP method}&\textbf{Description of the operation}\tabularnewline
+	\hline
+	/resources & GET & Retrieves a collection of resources of the same type that is specified in the URI. \tabularnewline
+	\hline
+	/resources/\{id\} & GET & Retrieves a single resource identified by a given \emph{\{id\}}.\tabularnewline
+	\hline
+	/resources & POST & Creates a new resource of the same type that is specified in the URI.\tabularnewline
+	\hline
+	/resources/\{id\} & PUT & Updates a resource identified by a given \emph{\{id\}}.\tabularnewline
+	\hline
+	/resources/\{id\} & DELETE & Deletes a resource identified by a given \emph{\{id\}}.
+	\tabularnewline
+	\hline
+	\end{tabular}
+\end{table}
+
+Table~\ref{table_web_serv_design} describes how the web services API are designed by combining URIs and HTTP methods. The URI specifies the resource of interest and the HTTP method indicates the desired action to be performed on the resource. Since each HTTP method is intended for a different purpose, it is necessary to identify what actions apply to each resource.
+
 A open source web framework~\cite{Walls2011} was used to develop the server side of the architecture, i.e., the web services. This framework facilitates the development of the front controller pattern in web-based application. Thus, all the requests are tunneled through a single entry point, which is an efficient mechanism to implement an API to access the web services. This mechanism not only routes and dispatches the requests to appropriate handlers, but also exposes a flexible and scalable API structure, which can be consumed by second screen devices using different programming languages.
-
-
 
 \subsection{Web Service Consumption}
 
+Since there is a well-defined web services API to access resources in the web application, it is possible to send HTTP requests from second screen devices and iTV terminals. A base URI which contains the domain of the web application (e.g., \emph{http://example.com}) is used as part of the API. Thus, the implementation of the HTTP requests in the client devices must use the entire URI, including the resource of interest.
+
+The effect of the HTTP request depends on the type of HTTP method that is used, which typically can be GET, POST, PUT, or DELETE. Requests using GET must only retrieve data from the server. Depending on the URI, a request using GET should retrieve either a single element or a collection of elements of the specified resource. Requests using POST demand that the server accept a new resource identified by the URI. Requests using PUT modify a resource identified by the URI. The requests using the DELETE method are intended to delete a resource specified by the URI.
+
+The proper combination of URIs and HTTP methods is used to manipulate resources in HTTP requests. It is possible to implement CRUD (create, read, update and delete) operations that are intended for communication between the second screen devices and the web application. As a result, the client devices can consume the web services and perform the desired actions on the resources.As an example, a request can be used to send viewers' interactions to the web server, or to retrieve content that is personalized according past interactions of the viewer.
+
 \subsection{iTV and Secondary Screen Devices Communication}
+
+
 
 \subsection{Experiment}
 
