@@ -147,7 +147,7 @@ The second screen devices and the iTV terminals need to communicate with the web
 	\centering
 	\begin{tabular}{|m{1.5cm}|>{\centering}m{1cm}|m{5cm}|}
 	\hline
-	\textbf{URI}&\textbf{HTTP method}&\textbf{Description of the operation}\tabularnewline
+	\textbf{URI}&\textbf{HTTP method}&\textbf{Description of the HTTP request}\tabularnewline
 	\hline
 	/resources & GET & Retrieves a collection of resources of the same type that is specified in the URI. \tabularnewline
 	\hline
@@ -171,7 +171,7 @@ A open source web framework~\cite{Wheeler2013} was used to develop the server si
 
 Since there is a well-defined web services API to access resources in the web application, it is possible to send HTTP requests from second screen devices and iTV terminals. A base URI which contains the domain of the web application (e.g., \emph{http://example.com}) is used as part of the API. Thus, the implementation of the HTTP requests in the client devices must use the entire URI, including the resource of interest.
 
-The effect of the HTTP request depends on the type of HTTP method that is used, which typically can be GET, POST, PUT, or DELETE. Requests using GET must only retrieve data from the server. Depending on the URI, a request using GET should retrieve either a single element or a collection of elements of the specified resource. Requests using POST demand that the server accept a new resource identified by the URI. Requests using PUT modify a resource identified by the URI. The requests using the DELETE method are intended to delete a resource specified by the URI.
+The effect of the HTTP request depends on the type of HTTP method that is used, which typically can be GET, POST, PUT, or DELETE. Requests using GET must only retrieve data from the server. Depending on the URI, a request using GET should retrieve either a single element or a collection of elements of the specified resource. Responses bodies for requests using GET methods typically are in JSON format. However, it is also possible to provide other Internet media types, e.g., XML or Atom. Requests using POST demand that the server accept a new resource identified by the URI. Requests using PUT modify a resource identified by the URI. The requests using the DELETE method are intended to delete a resource specified by the URI.
 
 The proper combination of URIs and HTTP methods is used to manipulate resources in HTTP requests. It is possible to implement CRUD (create, read, update and delete) operations that are intended for communication between the second screen devices and the web application. As a result, the client devices can consume the web services and perform the desired actions on the resources.As an example, a request can be used to send viewers' interactions to the web server, or to retrieve content that is personalized according past interactions of the viewer.
 
@@ -181,9 +181,25 @@ The proper combination of URIs and HTTP methods is used to manipulate resources 
 
 \subsection{Experiment}
 
-To motivate the need for using this architecture in second screen-based iTV environments, a scenario that enables the viewer to evaluate TV programs was developed. This scenario uses mobile devices (second screen devices) to present content related to what is being watched on TV. The content is shown in a native application developed for a commercial operating system and this second screen application communicates with a web server through Internet.
+To motivate the need for using this architecture in second screen-based iTV environments, a scenario that enables the viewer to evaluate TV programs was developed. This scenario uses mobile devices (second screen devices) to present content related to what is being watched on TV and capture viewers' interactions. To develop this scenario it was used a commercial cloud-computing environment intended for emulating the CP infrastructure and a mobile device with a commercial operating system.
 
-The viewers' interactions captured in the application are sent 
+The content that is presented in the mobile device is retrieved from a web server through Internet and is shown in an application, which was specially designed for second screen purposes. In this application, every time a viewer evaluates a TV program, the data obtained from this interaction is captured and sent to the web application through a HTTP request. This request carries data such as \emph{viewerId} (id of the viewer), \emph{programId} (id of the TV program), and \emph{rating} (a value from 1 to 5).
+
+It is important to note that every type of interaction can be captured, e.g., viewers' navigation between TV programs, amount of time spent viewing information about a TV program on the secondary screen, time stamp of the interaction, and etc. However, it is necessary to attach triggers to the application so that every time an interaction occurs, the data obtained from this specific interaction is sent to the web application in a HTTP request.
+
+The following URIs and HTTP methods describe some of the HTTP requests for viewers resources that were developed in this experiment:
+
+\begin{itemize}
+	\item \emph{/viewers} - POST: create a new viewer, as identified by the resource that is present in the URI. The parameters that are carried in this type of request are \emph{viewerId}, \emph{username}, and \emph{password}.
+	\item \emph{/viewers/\{viewerId\}} - GET: retrieves a specific viewer identified by \{viewerId\} in the URI. This request retrieves information about the viewer, which in this case are only \emph{viewerId} and \emph{username}, since is not safe to include a \emph{password} in the response body.
+	\item \emph{/viewers/\{viewerId\}/evaluations} - GET: Retrieve a collection of evaluations that were performed by a viewer identified by \{viewerId\}. Each evaluation contains a \emph{programId}, \emph{viewerId}, and a \emph{rating}.
+\end{itemize}
+
+HTTP requests for TV programs are identified as follows:
+
+\begin{itemize}
+	\item 
+\end{itemize}
 
 \section{Conclusions}
 
