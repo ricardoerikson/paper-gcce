@@ -187,15 +187,23 @@ The content that is presented in the mobile device is retrieved from a web serve
 
 It is important to note that every type of interaction can be captured, e.g., viewers' navigation between TV programs, amount of time spent viewing information about a TV program on the secondary screen, time stamp of the interaction, and etc. However, it is necessary to attach triggers to the application so that every time an interaction occurs, the data obtained from this specific interaction is sent to the web application in a HTTP request.
 
-The following URIs and HTTP methods describe some of the HTTP requests for viewers resources that were developed in this experiment:
+The web services API consists in handling three types of resources: viewers, TV programs and programs evaluations. The following URIs and HTTP methods describe some of the HTTP requests for viewers resources that were developed in this experiment:
 
 \begin{itemize}
-	\item \emph{/viewers} - POST: create a new viewer, as identified by the resource that is present in the URI. The parameters that are carried in this type of request are \emph{viewerId}, \emph{username}, and \emph{password}.
+	\item \emph{/viewers} - POST: creates a new viewer, as identified by the resource that is present in the URI. The parameters that are carried in this type of request are \emph{viewerId}, \emph{username}, and \emph{password}.
 	\item \emph{/viewers/\{viewerId\}} - GET: retrieves a specific viewer identified by \{viewerId\} in the URI. This request retrieves information about the viewer, which in this case are only \emph{viewerId} and \emph{username}, since is not safe to include a \emph{password} in the response body.
-	\item \emph{/viewers/\{viewerId\}/evaluations} - GET: Retrieve a collection of evaluations that were performed by a viewer identified by \{viewerId\}. Each evaluation contains a \emph{programId}, \emph{viewerId}, and a \emph{rating}.
+	\item \emph{/viewers/\{viewerId\}/evaluations} - GET: retrieves a collection of evaluations that were performed by a viewer identified by \{viewerId\}. Each evaluation contains a \emph{programId}, \emph{viewerId}, and a \emph{rating}.
 \end{itemize}
 
 HTTP requests for TV programs are identified as follows:
+
+\begin{itemize}
+	\item \emph{/programs} - POST: creates a new TV program, so that it is available to be presented in the second screen clients. In this experiment, an on-line videos platform was used provide videos to second screen clients. 
+	\item \emph{/programs} - GET: retrieves a collection of TV programs that are available on the CP. A TV program representation contains a \emph{programId}, a \emph{videoCode} (id of the video on the videos platform), and \emph{title} (a title for the video representing the program).
+	\item \emph{/program/\{programId\}} - GET: retrieves a single program identified by \emph{programId}.
+\end{itemize}
+
+Resources related to the evaluations performed by viewers are handled by the following HTTP requests:
 
 \begin{itemize}
 	\item 
