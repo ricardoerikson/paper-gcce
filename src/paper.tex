@@ -210,7 +210,27 @@ Resources related to the evaluations performed by viewers are handled by the fol
 	\item \emph{evaluations/viewers/\{viewerId\}/programs/\{programId\}} - GET: retrieves an evaluation of a viewer identified by \emph{\{viewerId\}} on a given TV program identified by \emph{\{programId\}}.
 \end{itemize}
 
-Some of the HTTP requests
+Some of the HTTP requests were created only to add content to the web application, so that the client devices could access this content. The HTTP requests that use a GET method typically are used in the client devices to retrieve content from the web application. In this experiment, it was employed the JSON format to 
+
+\begin{figure}
+\begin{verbatim}
+{
+    id: 5722646637445120,
+    viewer: {
+        id: 5629499534213120,
+        username: "user1"
+    },
+    program: {
+        id: 5649391675244544,
+        videoCode: "ZuQ4obQAN8",
+        title: "A Program Title"
+    },
+    rating: 4
+}
+\end{verbatim}
+\caption{Example of response to an HTTP request in JSON format.}
+\label{fig_response_json}
+\end{figure}
 
 \section{Conclusions}
 
