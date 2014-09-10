@@ -200,14 +200,17 @@ HTTP requests for TV programs are identified as follows:
 \begin{itemize}
 	\item \emph{/programs} - POST: creates a new TV program, so that it is available to be presented in the second screen clients. In this experiment, an on-line videos platform was used provide videos to second screen clients. 
 	\item \emph{/programs} - GET: retrieves a collection of TV programs that are available on the CP. A TV program representation contains a \emph{programId}, a \emph{videoCode} (id of the video on the videos platform), and \emph{title} (a title for the video representing the program).
-	\item \emph{/program/\{programId\}} - GET: retrieves a single program identified by \emph{programId}.
+	\item \emph{/program/\{programId\}} - GET: retrieves a single program identified by \emph{\{programId\}}.
 \end{itemize}
 
 Resources related to the evaluations performed by viewers are handled by the following HTTP requests:
 
 \begin{itemize}
-	\item 
+	\item \emph{/evaluations} - POST: creates a new evaluation. This HTTP request requires three attributes: \emph{viewerId}, \emph{programId}, and \emph{rating}.
+	\item \emph{evaluations/viewers/\{viewerId\}/programs/\{programId\}} - GET: retrieves an evaluation of a viewer identified by \emph{\{viewerId\}} on a given TV program identified by \emph{\{programId\}}.
 \end{itemize}
+
+Some of the HTTP requests
 
 \section{Conclusions}
 
