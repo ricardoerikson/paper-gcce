@@ -207,10 +207,10 @@ Resources related to the evaluations performed by viewers are handled by the fol
 
 \begin{itemize}
 	\item \emph{/evaluations} - POST: creates a new evaluation. This HTTP request requires three attributes: \emph{viewerId}, \emph{programId}, and \emph{rating}.
-	\item \emph{evaluations/viewers/\{viewerId\}/programs/\{programId\}} - GET: retrieves an evaluation of a viewer identified by \emph{\{viewerId\}} on a given TV program identified by \emph{\{programId\}}.
+	\item \emph{/evaluations/viewers/\{viewerId\}/programs/\{programId\}} - GET: retrieves an evaluation of a viewer identified by \emph{\{viewerId\}} on a given TV program identified by \emph{\{programId\}}.
 \end{itemize}
 
-Some of the HTTP requests were created only to add content to the web application, so that the client devices could access this content. The HTTP requests that use a GET method typically are used in the client devices to retrieve content from the web application. In this experiment, it was employed the JSON format to 
+Some of the HTTP requests were created only to add content to the web application, so that the client devices could access this content. The client devices typically use GET method in HTTP requests to retrieve content from the web application. In this experiment, the responses to the HTTP requests were provided in the JSON format. \figurename{~\ref{fig_response_json}} presents a JSON representation of a resource obtained with an HTTP request to \emph{/evaluations/viewers/\{viewerId\}/programs/\{programId\}} using a GET method. The implementation of this request searches for a resource of the type evaluation that has a \emph{\{viewerId\}} equals to 5629499534213120, and a \emph{\{programId\}} equals to 5649391675244544.
 
 \begin{figure}
 \begin{verbatim}
@@ -228,7 +228,7 @@ Some of the HTTP requests were created only to add content to the web applicatio
     rating: 4
 }
 \end{verbatim}
-\caption{Example of response to an HTTP request in JSON format.}
+\caption{Response to an HTTP request using GET method in JSON format. The code shown in this figure is a JSON representation of a resource of the type evaluation.}
 \label{fig_response_json}
 \end{figure}
 
