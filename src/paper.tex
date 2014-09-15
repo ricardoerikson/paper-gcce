@@ -36,29 +36,36 @@ TV watching is essentially a social activity, where groups of people gather arou
 
 Capturing the interactions of millions of viewers who are using interactive iTV applications and services can provide valuable information for content providers (CPs)~\cite{Teixeira2010}. However, it lacks a proper device to enable the capture of these interactions. The conventional remote control (RC), which is typically seen as the standard medium of interaction among the viewers and their TVs, became very limited for the iTV capabilities~\cite{Jeong2014}. In addition, this medium presents two notable problems: (1) to precisely and automatically identify the viewers who have possession of the RC; and (2) to capture contextualized viewers' interactions. As a result, it is difficult to properly identify the viewers in the environment, and the entire group (e.g., a family) is treated as a single viewer that is interacting with the iTV terminal.
 
-Given the limitations of the conventional RC, a novel second screen architecture to identify viewers who are interacting with iTV applications and services is presented in this paper. Personal devices (e.g., smartphones and tablets) are used as second screen devices with the aim of capturing personal and contextualized interactions from active viewers in iTV environments. As a result, viewers that interact with an iTV terminal can be properly identified while using a second screen device, which enables to precisely capture their interactions.
+Given the limitations of the conventional RC, a novel second screen architecture to identify viewers who are interacting with iTV applications and services is presented in this paper. Personal devices (e.g., smartphones and tablets) are used as second screen devices with the aim of capturing personal and contextualized interactions from viewers in an iTV environment. Furthermore, the usage of second screen devices offers other advantage. It opens up possibilities to provide viewers with extra information without disturbing the collective experience. For example, each viewer can independently browse through different information about programs and actors in their own devices. As a result, viewers that interact with an iTV terminal by using a second screen device can be properly identified, which enables to precisely capture their interactions. 
 
-An important application... By using proper machine learning algorithms, the personal and contextualized data can reveal important information about viewers' tastes~\cite{Kim2012,Shin2009}. 
+To illustrate the second screen architecture described in this paper, it was developed a scenario where viewers can use a second screen device to evaluate TV programs. In this scenario, it is possible to browse through TV programs and view extra information about a programs of interest. Viewers' interactions are captured during the use of the second screen device and the data is sent to a remote web application. The applications that were developed in this scenario were tested in commercial platforms that are commonly used by developers and manufacturers as a production environment for both free and paid applications. 
 
+Important applications for the data generated during the viewers' interactions with second screen devices are in the field of content personalization. By using proper machine learning algorithms, the data can reveal important information about viewers tastes~\cite{Kim2012,Shin2009}. As a result, CPs can deliver to the right viewer at the right time the right content, which can include targeted advertising, and content recommendation ~\cite{DosSantos2013}.
 
-As an example, the CPs can obtain the user ratings given to TV programs, amount of viewers and user profiles. By using proper machine learning algorithms, CPs can infer viewer tastes from audience data in order to deliver personalized content~\cite{Kim2012,Shin2009}. However, identifying viewers and capturing their individual interactions is still a challenging activity in the traditional TV environment, which consists of the TV and viewers interacting through a remote control (RC).
+% The contribution of this paper focuses on the consumption stage, and not so much on the different algorithms for content recommendation ... // Do not focus on content unrelated activity.
 
-% In this research field, a typical approach is to use personal devices (e.g., smartphones and tablets) as secondary screens~\cite{Courtois2012}, since they are almost ubiquitous and present good graphical capabilities. The connectivity capabilities of smartphones were used in~\cite{Cabarcos2011}, where the Bluetooth technology was used to detect nearby users. With respect to interaction capture, an approach described in~\cite{Teixeira2010} shown an architecture to capture contextualized viewers interactions through a conventional RC. In this paper, we present an architecture that facilitates the identification of viewers, which is useful to contextualize the interactions. In addition, the identification of viewers facilitates the capture of their individual interactions.
-
-Since personal devices are almost ubiquitous, they stand out as a powerful mechanism to identify viewers by means of wireless communication technologies~\cite{Cabarcos2011}. In the architecture described in this paper, personal devices play an additional role as a medium of interaction since they are easy and intuitive to use in iTV environments, as pointed out in~\cite{Courtois2012}. An approach described in~\cite{Teixeira2010} has shown an architecture to capture viewers' interactions through a conventional RC. The architecture described in this paper goes further and captures individual and contextualized data. Since the TV environment is shared, the data about nearby viewers is captured to contextualize the interaction with the purpose of helping to infer the behaviors of one viewer toward others ones.
-
-The sections of this paper are arranged as follows: \ldots
+The rest of this paper is organized as follows: first, Section~\ref{sec_background} presents a background of the concepts related to the proposed architecture. In Section~\ref{sec_overview} an overview of the proposed architecture is described. Section~\ref{sec_architecture} presents the architecture to capture interactions data from viewers, and Section~\ref{sec_implementation} describes how the architecture was implemented. Finally, Section~\ref{sec_experiment} contains 	an implementation scenario, and Section~\ref{sec_conclusions} provides the conclusions of this work.
 
 \section{Background}
+\label{sec_background}
+
+% The connectivity capabilities of smartphones were used in~\cite{Cabarcos2011}, where the Bluetooth technology was used to detect nearby users. With respect to interaction capture, an approach described in~\cite{Teixeira2010} shown an architecture to capture contextualized viewers interactions through a conventional RC. In this paper, we present an architecture that facilitates the identification of viewers, which is useful to contextualize the interactions. In addition, the identification of viewers facilitates the capture of their individual interactions.
+
+% Since personal devices are almost ubiquitous, they stand out as a powerful mechanism to identify viewers by means of wireless communication technologies~\cite{Cabarcos2011}. In the architecture described in this paper, personal devices play an additional role as a medium of interaction since they are easy and intuitive to use in iTV environments, as pointed out in~\cite{Courtois2012}. An approach described in~\cite{Teixeira2010} has shown an architecture to capture viewers' interactions through a conventional RC. The architecture described in this paper goes further and captures individual and contextualized data. Since the TV environment is shared, the data about nearby viewers is captured to contextualize the interaction with the purpose of helping to infer the behaviors of one viewer toward others ones.
+
 
 The key concepts and some relevant related works that underpin the proposed architecture are described in this section. Section~\ref{ssec_ss_usage} presents the usage of second screen devices in iTV environments. Section~\ref{ssec_capture_viewers_int_data} describes the current status of research on the capture of viewers' interactions. The identification of viewers in iTV environments is described in Section~\ref{ssec_ident_viewers_itv}.
 
 \subsection{Second Screen Usage in iTV}
 \label{ssec_ss_usage}
 
-Nowadays, TV viewers rarely just sit passively and watch TV. In many situations, they use second screen devices to perform activities related to TV watching. In the context of TV, second screen refers to the use of a computing device, which is usually a smartphone or a tablet PC, to enhance the viewing experience.
+Nowadays, TV viewers rarely just sit passively and watch TV. In many situations, they use second screen devices to perform activities related to TV watching. In the context of TV, second screen refers to the use of a computing device as an extended remote control in order to enhance the viewing experience~\cite{Cesar2009}. A typical approach is to use personal devices (e.g., smartphones and tablet PCs) as second screens, since they are almost ubiquitous and present good graphical capabilities~\cite{Courtois2012}.
 
-Research studies on second screen have been conducted in TV environments since late 1990s. In 1996, Robertson~\emph{et~al}.~\cite{Robertson1996} developed a prototype where handheld devices were used to control TV and to provide additional content (e.g., textual information) related to the audio-visual content presented in the TV screen. More recent studies show that viewers evaluated positively the use of second screen devices to control the TV and to enrich the TV content~\cite{Cesar2008,Cesar2011,Tsekleves2011}. Cesar~\emph{et~al.}~\cite{Cesar2009} contributed identifying and modeling the requirements to implement an interactive TV architecture based on second screen devices.
+Research studies on second screen have been conducted in TV environments since late 1990s. In 1996, Robertson~\emph{et~al}.~\cite{Robertson1996} developed a prototype where handheld devices were used to control TV and to provide additional content (e.g., textual information) related to the audio-visual content presented on TV screen. The handheld device can be used both as a stand-alone service and in conjunction with TV. In the latest case, the TV only responds to handheld commands and presents audio-visual content.
+
+More recent studies show that viewers evaluated positively the use of second screen devices to control and to enrich the TV content~\cite{Cesar2008,Cesar2011,Tsekleves2011}. Cesar~\emph{et~al.}~\cite{Cesar2009} contributed identifying and modeling the requirements to implement an iTV architecture based on second screen devices. Through business analysis 
+
+an working implementation of this architecture, the authors were able to conclude that second screen devices are considered as a value-added service
 
 A review of the related works shown that the usage of personal devices as second screen devices has two main advantages. Firstly, the visual elements (e.g., an EPG guide) that are commonly shown on the TV screen can be presented on the second screen device in such a way that the viewing experience of other viewers is not affected. Secondly, the second screen device can enhance the capabilities of a conventional remote control by providing more sophisticated interactions, e.g., gesture and voice commands. 
 
@@ -81,6 +88,7 @@ Since the TV environment can be shared by many viewers (e.g., a family or a grou
 Some research studies have addressed automated technologies for viewers' identification in interactive TV environments. Cabarcos~\emph{et~al.}~\cite{Cabarcos2011} described an architecture that uses the connectivity capabilities of smartphones to detect viewers nearby the TV terminal at every moment. Each smartphone has a hardware identifier(e.g., the Bluetooth MAC address), which is associated to a viewer identifier according to an association table. Hwang~\emph{et~al.}~\cite{Hwang2007} presented a method based on face recognition to identify viewers in interactive TV environments. The method uses sensors to capture images of the audience and then employs images processing techniques and machine learning algorithm for both detecting and recognizing the faces of the viewers.
 
 \section{Overview of the Second Screen Architecture}
+\label{sec_overview}
 
 The architecture presented in this paper applies to the capture of audience interactions by means of the use of second screen devices in interactive TV environments. Personal devices are used as second screen devices to enrich the interactivity between viewers and TV at the same time that they facilitate the capture of viewers' interactions.
 
@@ -104,8 +112,8 @@ The second screen devices and iTV terminals have client applications that consum
 % commentar sobre a sincronização de contexto entre iTV terminals e second screen devices.
 
 
-\section{Second Screen Architecture}
-
+\section{Architecture to Capture Viewers' Interactions}
+\label{sec_architecture}
 
 Viewers can use their second screen device to interact with TV by evaluating, commenting, sharing, or even recommending TV content to other viewers. The data related to those actions are naturally provided by the viewers, as part of the interaction, when using interactive applications (developed by the CP) installed in their second screen devices. The interactions and the contextual data are represented by the audience data, which is sent to CP infrastructure through Internet. Then, a Data Writer service stores the audience data related to each particular viewer and the iTV device.
 
@@ -151,6 +159,7 @@ An interesting P2P communication technology that is being adopted by many mobile
 % Colocar um parágrafo falando da importância de saber quem está por perto.
 
 \section{Implementation of the Second Screen Architecture}
+\label{sec_implementation}
 
 %The architecture described in this paper combines several concepts and technologies, e.g. second screen, interactive television, mobile applications, device to device communication and web technologies. 
 An implementation of the architecture described in this paper was developed using the Java programming language in both sides of the architecture. However, the proposed approach does not require uniquely the Java programming language and the its use does not subtract the generality of the architecture. Indeed, the architecture can be implemented in other languages provided that they are compatible with the development platforms and with the concepts described in this paper.
@@ -194,6 +203,7 @@ The effect of the HTTP request depends on the type of HTTP method that is used, 
 The proper combination of URIs and HTTP methods is used to manipulate resources in HTTP requests. It is possible to implement CRUD (create, read, update and delete) operations that are intended for communication between the second screen devices and the web application. As a result, the client devices can consume the web services and perform the desired actions on the resources.As an example, a request can be used to send viewers' interactions to the web server, or to retrieve content that is personalized according past interactions of the viewer.
 
 \section{Experiment: Evaluation of TV Programs using Second Screen}
+\label{sec_experiment}
 
 % Enfatizar a interação de avaliar um programa
 
@@ -260,6 +270,7 @@ cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 \section{Conclusions}
+\label{sec_conclusions}
 
 The use of personal devices as second screens arises as a new trend in TV environments. This paper presents an architecture to accurately capture audience data by using second screen devices and iTV devices. This architecture take advantage of the ubiquity and interactive capabilities of second screen devices to identify viewers and provide feedback for CPs through viewers' interactions and contextual information. The captured data relates to a single viewer in a given context. By using proper machine learning algorithms, this data can provide valuable information about viewers. Knowing this information can be very useful for CPs to improve their services aiming to increase the audience and to enrich user experience. As an example, CPs can deliver personalized content for a single person as well as for groups of people by using content recommendation algorithms.
 
